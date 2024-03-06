@@ -10,4 +10,5 @@ public class FleetManagementSystemApplication {
 		SpringApplication.run(FleetManagementSystemApplication.class, args);
 	}
 
+
 }
