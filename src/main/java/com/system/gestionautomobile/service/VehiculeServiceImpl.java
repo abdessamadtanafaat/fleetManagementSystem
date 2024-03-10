@@ -17,9 +17,9 @@ public class VehiculeServiceImpl implements VehiculeService {
     }
 
     @Override
-    public Vehicule getVehiculeById(long vehiculeId) {
-        Optional<Vehicule> entity = vehiculeRepository.findById(vehiculeId);
-        return unwrappVehicule(entity, vehiculeId);
+    public Vehicule getVehiculeById(long vehicleId) {
+        Optional<Vehicule> entity = vehiculeRepository.findById(vehicleId);
+        return unwrappVehicule(entity, vehicleId);
 
     }
 

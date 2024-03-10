@@ -24,10 +24,10 @@ public class Trip {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Future(message="La date que vous avez passée est dans la passé !!!")
+    //@Future(message="La date que vous avez passée est dans la passé !!!")
     private LocalDate dateDebut;
     private LocalTime heureDepart;
-    @Future(message="La date que vous avez passée est dans la passé !!!")
+    //@Future(message="La date que vous avez passée est dans la passé !!!")
     private LocalDate dateArrivePrevue;
     private LocalTime heureArrivePrevue;
     private String depart;
@@ -36,6 +36,7 @@ public class Trip {
     private VehiculeType typeVehicule;
     private int nbPassagers;
     private String autreDetails;
+
     @ManyToOne
     @JoinColumn(name="vehicule_id")
     private Vehicule vehicule;

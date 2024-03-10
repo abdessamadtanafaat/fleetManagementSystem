@@ -1,9 +1,19 @@
 HELP.md
+
+# Ignore application.properties
+application.properties
+/application.properties
+/src/main/resources/application.properties
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+<<<<<<< HEAD
 /src/main/resources/application.properties
+=======
+!**/src/main/**/resources/
+>>>>>>> d3c15cc3662f9ca38da23124591f2d61aaf6a03a
 
 ### STS ###
 .apt_generated
