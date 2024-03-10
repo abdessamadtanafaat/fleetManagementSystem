@@ -17,12 +17,8 @@ public class TripController {
 
     private TripService tripService;
     @PostMapping("/createTrip")
-    public ResponseEntity<?> saveTrip(@Valid @RequestBody Trip trip) {
-        try {
-            return tripService.saveTrip(trip);
-        } catch (InvalidDateOrderException ex) {
-            return ResponseEntity.badRequest().body(ex.getMessage());
-        }
+    public ResponseEntity<Trip> saveTrip(@Valid @RequestBody Trip trip) {
+        return new  ResponseEntity<>(tripService.saveTrip(trip) , HttpStatus.OK);
     }
 
     @GetMapping("/{tripId}")
