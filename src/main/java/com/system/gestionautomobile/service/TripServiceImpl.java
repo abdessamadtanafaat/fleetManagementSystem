@@ -5,6 +5,7 @@ import com.system.gestionautomobile.exception.InvalidDateOrderException;
 import com.system.gestionautomobile.exception.TripNotFoundException;
 import com.system.gestionautomobile.exception.TripServiceException;
 import com.system.gestionautomobile.repository.TripRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +14,9 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class TripServiceImpl implements TripService{
-    @Autowired
+
     private TripRepository tripRepository;
 
     public void isTripValid(Trip trip){
@@ -27,14 +29,11 @@ public class TripServiceImpl implements TripService{
             throw new InvalidDateOrderException(trip.getDateArrivePrevue(),trip.getDateDebut(),trip.getHeureArrivePrevue(),trip.getHeureDepart());
         }
     }
-    public ResponseEntity<?> saveTrip(Trip trip){
-        try{
+
+    @Override
+    public ResponseEntity<?> saveTrip(Trip trip) throws InvalidDateOrderException {
         isTripValid(trip);
         return ResponseEntity.ok(tripRepository.save(trip));
-        }catch(InvalidDateOrderException ex)
-        {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
-        }
     }
 
     @Override

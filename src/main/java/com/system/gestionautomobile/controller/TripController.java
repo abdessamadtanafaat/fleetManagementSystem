@@ -2,6 +2,7 @@ package com.system.gestionautomobile.controller;
 
 
 import com.system.gestionautomobile.entity.Trip;
+import com.system.gestionautomobile.exception.InvalidDateOrderException;
 import com.system.gestionautomobile.service.TripService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -10,15 +11,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/trip")
 @AllArgsConstructor
 public class TripController {
 
     private TripService tripService;
     @PostMapping("/createTrip")
-    public ResponseEntity<?> saveTrip(@Valid @RequestBody Trip trip ){
-        return tripService.saveTrip(trip);
+    public ResponseEntity<?> saveTrip(@Valid @RequestBody Trip trip) {
+        try {
+            return tripService.saveTrip(trip);
+        } catch (InvalidDateOrderException ex) {
+            return ResponseEntity.badRequest().body(ex.getMessage());
+        }
     }
+
     @GetMapping("/{tripId}")
     public ResponseEntity<Trip> getTripById(@PathVariable Long tripId){
         return new ResponseEntity<>(tripService.getTripById(tripId),HttpStatus.OK );

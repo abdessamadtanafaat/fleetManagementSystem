@@ -4,5 +4,5 @@ import com.system.gestionautomobile.entity.Vehicule;
 
 public interface VehiculeService {
     public Vehicule saveVehicule(Vehicule vehicule );
-    public Vehicule getVehiculeById(long vehiculeId);
+    public Vehicule getVehiculeById(long vehicleId);
 }
