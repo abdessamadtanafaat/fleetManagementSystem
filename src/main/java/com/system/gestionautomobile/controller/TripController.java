@@ -10,14 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/trip")
+@RequestMapping("/api/v1")
 @AllArgsConstructor
 public class TripController {
 
     private TripService tripService;
-    @PostMapping
-    public ResponseEntity<Trip> saveTrip(@Valid @RequestBody Trip trip ){
-        return new ResponseEntity<>(tripService.saveTrip(trip) , HttpStatus.CREATED);
+    @PostMapping("/createTrip")
+    public ResponseEntity<?> saveTrip(@Valid @RequestBody Trip trip ){
+        return tripService.saveTrip(trip);
     }
     @GetMapping("/{tripId}")
     public ResponseEntity<Trip> getTripById(@PathVariable Long tripId){

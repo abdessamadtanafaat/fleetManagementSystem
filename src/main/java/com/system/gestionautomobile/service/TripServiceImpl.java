@@ -6,6 +6,8 @@ import com.system.gestionautomobile.exception.TripNotFoundException;
 import com.system.gestionautomobile.exception.TripServiceException;
 import com.system.gestionautomobile.repository.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,23 +18,23 @@ public class TripServiceImpl implements TripService{
     private TripRepository tripRepository;
 
     public void isTripValid(Trip trip){
-
         if(trip.getDateArrivePrevue().isEqual(trip.getDateDebut())){
             if (trip.getHeureDepart().isAfter(trip.getHeureArrivePrevue())) {
-                throw new InvalidDateOrderException("Arrival time cannot be before departure time");
+                throw new InvalidDateOrderException(trip.getDateArrivePrevue(),trip.getDateDebut(),trip.getHeureArrivePrevue(),trip.getHeureDepart());
             }
-
         }
         else if(trip.getDateArrivePrevue().isBefore(trip.getDateDebut())){
-            throw new InvalidDateOrderException("Start date cannot be after end date");
-
+            throw new InvalidDateOrderException(trip.getDateArrivePrevue(),trip.getDateDebut(),trip.getHeureArrivePrevue(),trip.getHeureDepart());
         }
-
     }
-    public Trip saveTrip(Trip trip){
-        //fonction
+    public ResponseEntity<?> saveTrip(Trip trip){
+        try{
         isTripValid(trip);
-        return tripRepository.save(trip);
+        return ResponseEntity.ok(tripRepository.save(trip));
+        }catch(InvalidDateOrderException ex)
+        {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+        }
     }
 
     @Override
@@ -44,8 +46,6 @@ public class TripServiceImpl implements TripService{
     public static Trip unwrappTrip(Optional<Trip> entity , long id ){
         if(entity.isPresent())return entity.get();
         else throw new TripNotFoundException(id);
-
     }
-
 
 }

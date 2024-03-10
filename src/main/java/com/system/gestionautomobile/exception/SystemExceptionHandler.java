@@ -18,6 +18,6 @@ public class SystemExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<ErrorResponse> handleVehiculeNotFoundException(RuntimeException ex){
         ErrorResponse error = new ErrorResponse("The Vehicule that you're searching for is not found !!!!" , HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(error , HttpStatus.NOT_FOUND);
-
     }
+
 }
