@@ -19,7 +19,7 @@ public class Vehicule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String marque ;
     @Enumerated(EnumType.STRING)
     private VehiculeType vehiculeType;

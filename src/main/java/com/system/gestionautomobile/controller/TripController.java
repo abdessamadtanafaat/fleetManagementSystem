@@ -32,8 +32,7 @@ public class TripController {
     //affectation du conducteur à un voyage
     @PutMapping("/{tripId}")
     public ResponseEntity<Trip> affectConducteur(@PathVariable Long tripId){
-
-        return new ResponseEntity<>(HttpStatus.ACCEPTED) ;
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
 
     }
 

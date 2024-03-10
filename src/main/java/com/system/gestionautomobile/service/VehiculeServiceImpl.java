@@ -1,13 +1,11 @@
 package com.system.gestionautomobile.service;
 
 import com.system.gestionautomobile.entity.Vehicule;
-import com.system.gestionautomobile.exception.TripNotFoundException;
-import com.system.gestionautomobile.exception.VehiculeNotFoundException;
+import com.system.gestionautomobile.exception.EntityNotFoundException;
 import com.system.gestionautomobile.repository.VehiculeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Service
@@ -27,7 +25,7 @@ public class VehiculeServiceImpl implements VehiculeService {
 
     public static  Vehicule unwrappVehicule(Optional<Vehicule> entity , long id){
         if(entity.isPresent())return entity.get();
-        else throw new VehiculeNotFoundException(id);
+        else throw new EntityNotFoundException(id , Vehicule.class);
 
     }
 
