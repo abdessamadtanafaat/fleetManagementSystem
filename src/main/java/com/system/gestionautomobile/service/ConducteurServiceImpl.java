@@ -10,10 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ConducteurServiceImpl {
+public class ConducteurServiceImpl implements ConducteurService {
     @Autowired
     private ConducteurRepository conducteurRepository;
 
+    @Override
     public Conducteur saveConducteur(Conducteur conducteur){
         return conducteurRepository.save(conducteur);
     }

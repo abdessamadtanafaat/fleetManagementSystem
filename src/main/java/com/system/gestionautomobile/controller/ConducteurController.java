@@ -1,13 +1,25 @@
 package com.system.gestionautomobile.controller;
 
 import com.system.gestionautomobile.entity.Conducteur;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.system.gestionautomobile.entity.Vehicule;
+import com.system.gestionautomobile.service.ConducteurService;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/conducteur")
+@AllArgsConstructor
 public class ConducteurController {
+
+    private ConducteurService conducteurService;
+
+    @PostMapping("/createConducteur")
+    public ResponseEntity<Conducteur> createConducteur(@Valid @RequestBody Conducteur conducteur){
+        return new ResponseEntity<>(conducteurService.saveConducteur(conducteur), HttpStatus.CREATED);
+    }
 
 }
