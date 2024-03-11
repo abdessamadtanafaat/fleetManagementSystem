@@ -61,7 +61,7 @@ class TripServiceImplTest {
 
 
     }
-    
+
     private Trip createValidTrip() {
         Trip trip = new Trip();
         trip.setDepart("agadir");
