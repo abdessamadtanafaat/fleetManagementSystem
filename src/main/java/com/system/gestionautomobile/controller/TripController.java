@@ -32,11 +32,11 @@ public class TripController {
 
     }*/
     //affectation du conducteur à un voyage
-/*    @PutMapping("/{tripId}")
+    @PutMapping("/{tripId}")
     public ResponseEntity<Trip> affectConducteur(@PathVariable Long tripId, @RequestParam Long DriverId){
         return new ResponseEntity<>(tripService.assignTripToDriver(tripId,DriverId),HttpStatus.ACCEPTED);
 
-    }*/
+    }
 
 
 

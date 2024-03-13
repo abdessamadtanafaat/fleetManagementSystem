@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -54,48 +55,38 @@ public class TripServiceImpl implements TripService {
 
     }
 
-/*    @Override
-    public Trip assignTripToDriver(Long tripId, Long DriverId) {
-        Trip trip = tripRepository.findById(tripId).orElseThrow(NotFoundTripException::new);
-        Conducteur conducteur = conducteurRepository.findById(DriverId).orElseThrow(DriverNotFoundException::new);
+    @Override
+    public Trip assignTripToDriver(Long tripId, Long driverId) {
+        // Retrieve the trip and conducteur from the database
+        Trip proposedTrip = tripRepository.findById(tripId).orElseThrow(NotFoundTripException::new);
+        Conducteur conducteur = conducteurRepository.findById(driverId).orElseThrow(DriverNotFoundException::new);
 
-        if (!isDriverAvailable(conducteur, trip)) {
-            throw new IllegalArgumentException("Driver is not available for this trip.");
+        // Check if the conducteur is available
+        if (isDriverAvailable(conducteur, proposedTrip)) {
+            proposedTrip.setConducteur(conducteur);
+            return tripRepository.save(proposedTrip);
+        } else {
+            throw new RuntimeException("Conducteur is busy and cannot be assigned this trip.");
         }
-        trip.setConducteur(conducteur);
-        return tripRepository.save(trip);
     }
 
     private boolean isDriverAvailable(Conducteur conducteur, Trip proposedTrip) {
-        List<Trip> driverTrips = conducteur.getTrips().stream()
-                .filter(trip -> trip.getId() != proposedTrip.getId())
-                .collect(Collectors.toList());
+        LocalDateTime proposedTripStart = LocalDateTime.of(proposedTrip.getDateDebut(), proposedTrip.getHeureDepart());
+        LocalDateTime proposedTripEnd = LocalDateTime.of(proposedTrip.getDateArrivePrevue(), proposedTrip.getHeureArrivePrevue());
 
+        // Filter the conducteur's trips that overlap with the proposed trip
+        boolean isAvailable = conducteur.getTrips().stream()
+                .noneMatch(existingTrip -> {
+                    LocalDateTime existingTripStart = LocalDateTime.of(existingTrip.getDateDebut(), existingTrip.getHeureDepart());
+                    LocalDateTime existingTripEnd = LocalDateTime.of(existingTrip.getDateArrivePrevue(), existingTrip.getHeureArrivePrevue());
+                    return proposedTripStart.isBefore(existingTripEnd) && proposedTripEnd.isAfter(existingTripStart);
+                });
 
-        for (Trip trip : driverTrips) {
-            if (isTripConflict(trip, proposedTrip)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    private boolean isTripConflict(Trip existingTrip, Trip proposedTrip) {
-
-        boolean intervalConflict = isIntervalWithinInterval(existingTrip.getDateDebut(), existingTrip.getHeureDepart(),
-                existingTrip.getDateArrivePrevue(), existingTrip.getHeureArrivePrevue(),
-                proposedTrip.getDateDebut(), proposedTrip.getHeureDepart(),
-                proposedTrip.getDateArrivePrevue(), proposedTrip.getHeureArrivePrevue());
-
-        return intervalConflict;
+        // If the conducteur has no overlapping trips, then they are available
+        return isAvailable;
     }
 
-    private boolean isIntervalWithinInterval(LocalDate start1, LocalTime startTime1, LocalDate end1, LocalTime endTime1,
-                                             LocalDate start2, LocalTime startTime2, LocalDate end2, LocalTime endTime2) {
-        LocalDateTime intervalStart1 = LocalDateTime.of(start1, startTime1);
-        LocalDateTime intervalEnd1 = LocalDateTime.of(end1, endTime1);
-        LocalDateTime intervalStart2 = LocalDateTime.of(start2, startTime2);
-        LocalDateTime intervalEnd2 = LocalDateTime.of(end2, endTime2);
-        return intervalStart1.isBefore(intervalEnd2) && intervalEnd1.isAfter(intervalStart2);
-    }*/
+
+
 
 }
