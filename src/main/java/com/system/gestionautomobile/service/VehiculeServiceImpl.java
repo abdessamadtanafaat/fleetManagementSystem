@@ -6,6 +6,7 @@ import com.system.gestionautomobile.repository.VehiculeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,6 +22,11 @@ public class VehiculeServiceImpl implements VehiculeService {
         Optional<Vehicule> entity = vehiculeRepository.findById(vehicleId);
         return unwrappVehicule(entity, vehicleId);
 
+    }
+
+    @Override
+    public List<Vehicule> getAvailableVehicules() {
+        return null;
     }
 
     public static  Vehicule unwrappVehicule(Optional<Vehicule> entity , long id){

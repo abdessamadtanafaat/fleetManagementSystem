@@ -34,6 +34,7 @@ public class Trip {
     private String destination ;
     @Enumerated(EnumType.STRING)
     private VehiculeType typeVehicule;
+
     private int nbPassagers;
     private String autreDetails;
 
@@ -44,8 +45,4 @@ public class Trip {
     @ManyToOne
     @JoinColumn(name="conducteur_id")
     private Conducteur conducteur;
-
-
-
-
 }
