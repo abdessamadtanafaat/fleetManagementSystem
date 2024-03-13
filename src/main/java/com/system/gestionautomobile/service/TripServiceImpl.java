@@ -55,6 +55,7 @@ public class TripServiceImpl implements TripService {
 
     }
 
+/*
     @Override
     public Trip assignTripToDriver(Long tripId, Long driverId) {
         // Retrieve the trip and conducteur from the database
@@ -85,6 +86,7 @@ public class TripServiceImpl implements TripService {
         // If the conducteur has no overlapping trips, then they are available
         return isAvailable;
     }
+*/
 
 
 

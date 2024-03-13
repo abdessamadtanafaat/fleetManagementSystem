@@ -7,6 +7,6 @@ import org.springframework.http.ResponseEntity;
 public interface TripService {
     public Trip saveTrip(Trip trip);
     public Trip getTripById(Long tripId);
-    public Trip assignTripToDriver(Long tripId, Long driverId);
+    //public Trip assignTripToDriver(Long tripId, Long driverId);
 
 }
