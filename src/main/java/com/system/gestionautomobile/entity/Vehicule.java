@@ -1,10 +1,8 @@
 package com.system.gestionautomobile.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 import java.util.Set;
@@ -14,7 +12,9 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
+
 public class Vehicule {
 
     @Id
@@ -30,6 +30,7 @@ public class Vehicule {
     private String equipements;
 
     @OneToMany(mappedBy = "vehicule")
+    @JsonIgnore
     private Set<Trip> trips;
 
 

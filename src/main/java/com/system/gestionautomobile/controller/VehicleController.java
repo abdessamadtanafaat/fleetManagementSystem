@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api/vehicle")
+@RequestMapping("/vehicle")
 public class VehicleController {
     private VehiculeService vehiculeService ;
-    @PostMapping("/createVehicle")
+    @PostMapping()
     public ResponseEntity<Vehicule> saveVehicle(@Valid @RequestBody Vehicule vehicule){
         return new ResponseEntity<>(vehiculeService.saveVehicule(vehicule), HttpStatus.CREATED);
     }

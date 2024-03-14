@@ -2,6 +2,7 @@ package com.system.gestionautomobile.service;
 
 import com.system.gestionautomobile.entity.Conducteur;
 import com.system.gestionautomobile.entity.Trip;
+import com.system.gestionautomobile.entity.Vehicule;
 import com.system.gestionautomobile.exception.DriverNotFoundException;
 import com.system.gestionautomobile.exception.EntityNotFoundException;
 import com.system.gestionautomobile.exception.InvalidDateOrderException;
@@ -24,8 +25,8 @@ import java.util.stream.Collectors;
 public class TripServiceImpl implements TripService {
 
     private TripRepository tripRepository;
-    private ConducteurRepository conducteurRepository;
-
+    private ConducteurService conducteurService ;
+    private VehiculeService vehiculeService;
     public void isTripValid(Trip trip) {
         if (trip.getDateArrivePrevue().isEqual(trip.getDateDebut())) {
             if (trip.getHeureDepart().isAfter(trip.getHeureArrivePrevue())) {
@@ -48,6 +49,29 @@ public class TripServiceImpl implements TripService {
         Optional<Trip> entity = tripRepository.findById(tripId);
         return unwrappTrip(entity, tripId);
     }
+
+    @Override
+    public Vehicule assignVehiculeToTrip(long tripId) {
+        Trip trip =getTripById(tripId);
+        List<Vehicule> vehicules = vehiculeService.getAvailableVehicules(trip);
+
+        // Vérifier si des véhicules sont disponibles
+        if (!vehicules.isEmpty() ) {
+            Vehicule vehicule = vehicules.get(0);
+            trip.setVehicule(vehicule);
+            vehicule.getTrips().add(trip);
+            vehicule.setDisponible(false);
+            return vehiculeService.saveVehicule(vehicule);
+        }
+        return null ;
+    }
+
+
+    @Override
+    public Conducteur assignConducteurToTrip(long tripId) {
+        return null;
+    }
+
 
     public static Trip unwrappTrip(Optional<Trip> entity, long id) {
         if (entity.isPresent()) return entity.get();

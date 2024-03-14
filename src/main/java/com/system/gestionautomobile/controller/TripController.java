@@ -2,6 +2,7 @@ package com.system.gestionautomobile.controller;
 
 
 import com.system.gestionautomobile.entity.Trip;
+import com.system.gestionautomobile.entity.Vehicule;
 import com.system.gestionautomobile.exception.InvalidDateOrderException;
 import com.system.gestionautomobile.service.TripService;
 import jakarta.validation.Valid;
@@ -11,12 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/trip")
+@RequestMapping("/trip")
 @AllArgsConstructor
 public class TripController {
 
     private TripService tripService;
-    @PostMapping("/createTrip")
+    @PostMapping()
     public ResponseEntity<Trip> saveTrip(@Valid @RequestBody Trip trip) {
         return new  ResponseEntity<>(tripService.saveTrip(trip) , HttpStatus.OK);
     }
@@ -26,11 +27,11 @@ public class TripController {
         return new ResponseEntity<>(tripService.getTripById(tripId),HttpStatus.OK );
     }
     //affectation de vehicule à un voyage
-    /*@PutMapping("/{tripId}")
-    public ResponseEntity<> affectVehicule(@PathVariable Long vehiculeId){
-        return new ResponseEntity<>();
+    @PutMapping("/{tripId}")
+    public ResponseEntity<Vehicule> affectVehicule(@PathVariable long tripId){
+        return new ResponseEntity<>(tripService.assignVehiculeToTrip(tripId) ,HttpStatus.ACCEPTED);
 
-    }*/
+    }
     //affectation du conducteur à un voyage
 /*    @PutMapping("/{tripId}")
     public ResponseEntity<Trip> affectConducteur(@PathVariable Long tripId, @RequestParam Long DriverId){

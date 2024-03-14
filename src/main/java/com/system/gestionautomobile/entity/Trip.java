@@ -5,17 +5,15 @@ import com.fasterxml.jackson.annotation.JsonTypeId;
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Future;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name="trip")
 public class Trip {
