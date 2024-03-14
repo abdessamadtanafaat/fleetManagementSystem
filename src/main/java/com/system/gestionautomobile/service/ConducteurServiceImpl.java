@@ -4,6 +4,7 @@ import com.system.gestionautomobile.entity.Conducteur;
 import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.exception.EntityNotFoundException;
 import com.system.gestionautomobile.repository.ConducteurRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,8 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
+@AllArgsConstructor
 public class ConducteurServiceImpl implements ConducteurService {
-    @Autowired
     private ConducteurRepository conducteurRepository;
 
     @Override
@@ -23,8 +24,16 @@ public class ConducteurServiceImpl implements ConducteurService {
     }
 
     @Override
-    public List<Conducteur> getAvailableConducteur(Trip trip) {
-        List<Conducteur> conducteurs = getAllConducteur();
+    public void deleteConducteur(long conducteurId) {
+        conducteurRepository.deleteById(conducteurId);
+    }
+    @Override
+    public List<Conducteur> getAllConducteurs() {
+        return (List<Conducteur>)conducteurRepository.findAll();
+    }
+    @Override
+    public List<Conducteur> getAvailableConducteurs(Trip trip) {
+        List<Conducteur> conducteurs = getAllConducteurs();
         //implements stream
         conducteurs.stream().filter(conducteur->isConducteurAvailable(conducteur ,trip.getDateDebut() , trip.getDateArrivePrevue()));
         return conducteurs;
@@ -39,24 +48,10 @@ public class ConducteurServiceImpl implements ConducteurService {
         if(datePrevue.isAfter(trip.getDateDebut().minusDays(1)) && datePrevue.isBefore(trip.getDateArrivePrevue().plusDays(1)))return false;
         return true ;
     }
-
-
-    public List<Conducteur> getAllConducteur(){
-        return (List<Conducteur>)conducteurRepository.findAll();
-
-    }
-
-    public void deleteConducteur(Long id) {
-        conducteurRepository.deleteById(id);
-    }
-
     public Conducteur getConducteurById(long id){
-
         Optional<Conducteur> entity = conducteurRepository.findById(id);
         return unwrappedConducteur(entity , id);
-
     }
-
     public static Conducteur unwrappedConducteur(Optional<Conducteur> entity , long id){
         if(entity.isPresent())return entity.get();
         else throw new EntityNotFoundException(id ,Conducteur.class);
