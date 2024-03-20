@@ -20,4 +20,9 @@ public class SystemExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(error , HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(UnsupportedTripException.class)
+    public ResponseEntity<ErrorResponse> handleUnsupportedTripException(RuntimeException ex){
+        ErrorResponse error = new ErrorResponse(ex.getMessage() ,HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(error , HttpStatus.NOT_FOUND);
+    }
 }

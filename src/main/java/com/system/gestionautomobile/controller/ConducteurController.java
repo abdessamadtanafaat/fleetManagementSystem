@@ -1,7 +1,6 @@
 package com.system.gestionautomobile.controller;
 
 import com.system.gestionautomobile.entity.Conducteur;
-import com.system.gestionautomobile.entity.Vehicule;
 import com.system.gestionautomobile.service.ConducteurService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -17,9 +16,11 @@ public class ConducteurController {
 
     private ConducteurService conducteurService;
 
-    @PostMapping("/createConducteur")
-    public ResponseEntity<Conducteur> createConducteur(@Valid @RequestBody Conducteur conducteur){
+
+    @PostMapping
+    public ResponseEntity<Conducteur> createConductor(@Valid @RequestBody Conducteur conducteur){
         return new ResponseEntity<>(conducteurService.saveConducteur(conducteur), HttpStatus.CREATED);
     }
+
 
 }

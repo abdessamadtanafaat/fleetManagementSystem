@@ -1,10 +1,8 @@
 package com.system.gestionautomobile.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Fetch;
 
 import java.time.LocalDate;
@@ -16,7 +14,8 @@ import java.util.Set;
 @Entity
 @Table(name="conducteur")
 @Builder
-@Data
+@Getter
+@Setter
 public class Conducteur {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -29,7 +28,6 @@ public class Conducteur {
     private PermisType typePermisRequis;
 
     @OneToMany(mappedBy = "conducteur")
+    @JsonIgnore
     private Set<Trip> trips ;
-
-
 }

@@ -8,10 +8,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -35,18 +38,41 @@ public class ConducteurServiceImpl implements ConducteurService {
     public List<Conducteur> getAvailableConducteurs(Trip trip) {
         List<Conducteur> conducteurs = getAllConducteurs();
         //implements stream
-        conducteurs.stream().filter(conducteur->isConducteurAvailable(conducteur ,trip.getDateDebut() , trip.getDateArrivePrevue()));
-        return conducteurs;
+
+        return conducteurs.stream().filter(conducteur->isConducteurAvailable(conducteur ,trip.getDateDebut() , trip.getDateArrivePrevue() , trip.getHeureDepart() , trip.getHeureArrivePrevue())).collect(Collectors.toList());
+
     }
-    public boolean isConducteurAvailable(Conducteur conducteur , LocalDate dateDebut , LocalDate dateArrive){
+    public boolean isConducteurAvailable(Conducteur conducteur , LocalDate dateDebut , LocalDate dateArrive , LocalTime heureDepart , LocalTime heureArrive){
         Set<Trip> trips = conducteur.getTrips();
-        trips.stream().filter(trip->compareToNewTrip(trip , dateDebut , dateArrive));
-        return trips.isEmpty();
+        return trips.stream().filter(trip -> compareToNewTrip(trip, dateDebut, dateArrive, heureDepart, heureArrive)).count() == 0;
+
     }
-    public boolean compareToNewTrip(Trip trip , LocalDate dateDebut , LocalDate datePrevue){
-        if(dateDebut.isAfter(trip.getDateDebut().minusDays(1)) && dateDebut.isBefore(trip.getDateArrivePrevue().plusDays(1))  )return false;
-        if(datePrevue.isAfter(trip.getDateDebut().minusDays(1)) && datePrevue.isBefore(trip.getDateArrivePrevue().plusDays(1)))return false;
-        return true ;
+    public boolean compareToNewTrip(Trip trip , LocalDate dateDebut , LocalDate datePrevue , LocalTime heureDepart , LocalTime heureArrive){
+        LocalDate tripDateDebut = trip.getDateDebut();
+        LocalDate tripDateArrivePrevue = trip.getDateArrivePrevue();
+        LocalTime tripHeureDepart = trip.getHeureDepart();
+        LocalTime tripHeureArrive = trip.getHeureArrivePrevue();
+        boolean datesOverlap = !(datePrevue.isBefore(tripDateDebut) || dateDebut.isAfter(tripDateArrivePrevue));
+
+        if (datesOverlap) {
+            boolean timesOverlap = !(heureArrive.isBefore(tripHeureDepart) || heureDepart.isAfter(tripHeureArrive));
+            if (!timesOverlap) {
+                Duration totalDurationWithinDateRange = trip.getConducteur().getTrips().stream()
+                        .filter(t -> !(t.getDateArrivePrevue().isBefore(dateDebut) || t.getDateDebut().isAfter(datePrevue)))
+                        .map(t -> Duration.between(t.getHeureDepart(), t.getHeureArrivePrevue()))
+
+                        .reduce(Duration.ZERO, Duration::plus);
+                Duration newTripDuration = Duration.between(heureDepart, heureArrive);
+                Duration totalDurationWithNewTrip = totalDurationWithinDateRange.plus(newTripDuration);
+                return totalDurationWithNewTrip.toHours() >= 8;
+
+
+
+
+            }
+            return true;
+        }
+        return true;
     }
     public Conducteur getConducteurById(long id){
         Optional<Conducteur> entity = conducteurRepository.findById(id);

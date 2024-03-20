@@ -3,10 +3,7 @@ package com.system.gestionautomobile.service;
 import com.system.gestionautomobile.entity.Conducteur;
 import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.entity.Vehicule;
-import com.system.gestionautomobile.exception.DriverNotFoundException;
-import com.system.gestionautomobile.exception.EntityNotFoundException;
-import com.system.gestionautomobile.exception.InvalidDateOrderException;
-import com.system.gestionautomobile.exception.NotFoundTripException;
+import com.system.gestionautomobile.exception.*;
 import com.system.gestionautomobile.repository.ConducteurRepository;
 import com.system.gestionautomobile.repository.TripRepository;
 import lombok.AllArgsConstructor;
@@ -63,13 +60,24 @@ public class TripServiceImpl implements TripService {
             vehicule.setDisponible(false);
             return vehiculeService.saveVehicule(vehicule);
         }
-        return null ;
+        throw new UnsupportedTripException("No available Vehicules for the trip with id of "+tripId);
     }
 
 
     @Override
     public Conducteur assignConducteurToTrip(long tripId) {
-        return null;
+        Trip trip = getTripById(tripId);
+        List<Conducteur> conducteurs = conducteurService.getAvailableConducteurs(trip);
+        if (!conducteurs.isEmpty() ) {
+            Conducteur conducteur = conducteurs.get(0);
+            trip.setConducteur(conducteur);
+            conducteur.getTrips().add(trip);
+
+            return conducteurService.saveConducteur(conducteur);
+        }
+
+
+        throw new UnsupportedTripException("No available Conducteur for the trip with id of "+tripId);
     }
 
 

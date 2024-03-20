@@ -1,6 +1,7 @@
 package com.system.gestionautomobile.controller;
 
 
+import com.system.gestionautomobile.entity.Conducteur;
 import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.entity.Vehicule;
 import com.system.gestionautomobile.exception.InvalidDateOrderException;
@@ -27,22 +28,16 @@ public class TripController {
         return new ResponseEntity<>(tripService.getTripById(tripId),HttpStatus.OK );
     }
     //affectation de vehicule à un voyage
-    @PutMapping("/{tripId}")
+    @PutMapping("/assign-vehicule/{tripId}")
     public ResponseEntity<Vehicule> affectVehicule(@PathVariable long tripId){
         return new ResponseEntity<>(tripService.assignVehiculeToTrip(tripId) ,HttpStatus.ACCEPTED);
 
     }
     //affectation du conducteur à un voyage
-/*    @PutMapping("/{tripId}")
-    public ResponseEntity<Trip> affectConducteur(@PathVariable Long tripId, @RequestParam Long DriverId){
-        return new ResponseEntity<>(tripService.assignTripToDriver(tripId,DriverId),HttpStatus.ACCEPTED);
+    @PutMapping("/assign-conducteur/{tripId}")
+    public ResponseEntity<Conducteur> affectConducteur(@PathVariable Long tripId){
+        return new ResponseEntity<>(tripService.assignConducteurToTrip(tripId),HttpStatus.ACCEPTED);
 
-    }*/
-
-
-
-
-
-
+    }
 
 }
