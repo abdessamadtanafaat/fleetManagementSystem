@@ -2,6 +2,7 @@ package com.system.gestionautomobile.service;
 
 import com.system.gestionautomobile.entity.Conducteur;
 import com.system.gestionautomobile.entity.Permis;
+import com.system.gestionautomobile.entity.PermisType;
 import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.exception.EntityNotFoundException;
 import com.system.gestionautomobile.repository.ConducteurRepository;
@@ -24,8 +25,17 @@ public class ConducteurServiceImpl implements ConducteurService {
     private ConducteurRepository conducteurRepository;
     private PermisService permisService;
 
+
     @Override
     public Conducteur saveConducteur(Conducteur conducteur){
+        Permis permis = conducteur.getPermis();
+        Set<PermisType> permisTypes = permis.getPermisType();
+        permis.setPermisType(null);
+
+        permisService.savePermis(permis);
+        permisTypes = permisService.savePermisTypes( permis,permisTypes);
+        permis.setPermisType(permisTypes);
+        permisService.savePermis(permis);
         return conducteurRepository.save(conducteur) ;
     }
 

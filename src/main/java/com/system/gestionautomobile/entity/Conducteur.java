@@ -28,7 +28,7 @@ public class Conducteur {
     @OneToMany(mappedBy = "conducteur")
     @JsonIgnore
     private Set<Trip> trips ;
-    @OneToOne(optional=false , cascade = CascadeType.ALL)
+    @OneToOne(optional=false , cascade = CascadeType.ALL , orphanRemoval = true)
     @JoinColumn(name="permis_id")
     private Permis permis;
 

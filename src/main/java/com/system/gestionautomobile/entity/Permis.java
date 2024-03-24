@@ -12,13 +12,13 @@ import java.util.Set;
 @Table(name="permis")
 @Getter
 @Setter
-@Embeddable
 public class Permis {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;
     private String permisNum;
-    @OneToMany(mappedBy = "permis")
+    @OneToMany( mappedBy = "permis" ,cascade = CascadeType.ALL , orphanRemoval = true)
+
     private Set<PermisType> permisType;
     private LocalDate finDeValidite ;
     @OneToOne(optional=false , mappedBy = "permis")
