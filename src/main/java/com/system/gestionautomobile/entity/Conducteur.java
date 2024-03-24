@@ -25,9 +25,11 @@ public class Conducteur {
     private String matricule;
     private LocalDate dateNaissance;
     private String cin ;
-    private PermisType typePermisRequis;
-
     @OneToMany(mappedBy = "conducteur")
     @JsonIgnore
     private Set<Trip> trips ;
+    @OneToOne(optional=false , cascade = CascadeType.ALL)
+    @JoinColumn(name="permis_id")
+    private Permis permis;
+
 }

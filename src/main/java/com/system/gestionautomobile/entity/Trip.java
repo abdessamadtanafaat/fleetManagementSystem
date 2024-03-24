@@ -32,14 +32,12 @@ public class Trip {
     private String destination ;
     @Enumerated(EnumType.STRING)
     private VehiculeType typeVehicule;
-
     private int nbPassagers;
     private String autreDetails;
 
     @ManyToOne
     @JoinColumn(name="vehicule_id")
     private Vehicule vehicule;
-
     @ManyToOne
     @JoinColumn(name="conducteur_id")
     private Conducteur conducteur;

@@ -1,9 +1,11 @@
 package com.system.gestionautomobile.service;
 
 import com.system.gestionautomobile.entity.Conducteur;
+import com.system.gestionautomobile.entity.Permis;
 import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.exception.EntityNotFoundException;
 import com.system.gestionautomobile.repository.ConducteurRepository;
+import com.system.gestionautomobile.repository.PermisRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +22,11 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class ConducteurServiceImpl implements ConducteurService {
     private ConducteurRepository conducteurRepository;
+    private PermisService permisService;
 
     @Override
     public Conducteur saveConducteur(Conducteur conducteur){
-        return conducteurRepository.save(conducteur);
+        return conducteurRepository.save(conducteur) ;
     }
 
     @Override
@@ -36,10 +39,18 @@ public class ConducteurServiceImpl implements ConducteurService {
     }
     @Override
     public List<Conducteur> getAvailableConducteurs(Trip trip) {
+        //check permis type
+
+
         List<Conducteur> conducteurs = getAllConducteurs();
         //implements stream
-
-        return conducteurs.stream().filter(conducteur->isConducteurAvailable(conducteur ,trip.getDateDebut() , trip.getDateArrivePrevue() , trip.getHeureDepart() , trip.getHeureArrivePrevue())).collect(Collectors.toList());
+        return conducteurs.
+                stream().
+                filter(
+                        conducteur->isConducteurAvailable(conducteur
+                                ,trip.getDateDebut() , trip.getDateArrivePrevue() ,
+                                trip.getHeureDepart() , trip.getHeureArrivePrevue()))
+                .collect(Collectors.toList());
 
     }
     public boolean isConducteurAvailable(Conducteur conducteur , LocalDate dateDebut , LocalDate dateArrive , LocalTime heureDepart , LocalTime heureArrive){
@@ -53,7 +64,6 @@ public class ConducteurServiceImpl implements ConducteurService {
         LocalTime tripHeureDepart = trip.getHeureDepart();
         LocalTime tripHeureArrive = trip.getHeureArrivePrevue();
         boolean datesOverlap = !(datePrevue.isBefore(tripDateDebut) || dateDebut.isAfter(tripDateArrivePrevue));
-
         if (datesOverlap) {
             boolean timesOverlap = !(heureArrive.isBefore(tripHeureDepart) || heureDepart.isAfter(tripHeureArrive));
             if (!timesOverlap) {
@@ -65,10 +75,6 @@ public class ConducteurServiceImpl implements ConducteurService {
                 Duration newTripDuration = Duration.between(heureDepart, heureArrive);
                 Duration totalDurationWithNewTrip = totalDurationWithinDateRange.plus(newTripDuration);
                 return totalDurationWithNewTrip.toHours() >= 8;
-
-
-
-
             }
             return true;
         }

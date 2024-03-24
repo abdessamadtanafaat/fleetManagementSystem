@@ -25,7 +25,7 @@ public class Vehicule {
     private VehiculeType vehiculeType;
     private float kilometrage;
     @Enumerated(EnumType.STRING)
-    private PermisType permisType;
+    private PermisCategorie permisCategorie;
     private boolean disponible ;
     private String equipements;
 

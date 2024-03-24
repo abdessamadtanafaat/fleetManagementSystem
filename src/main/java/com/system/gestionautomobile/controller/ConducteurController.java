@@ -18,7 +18,7 @@ public class ConducteurController {
 
 
     @PostMapping
-    public ResponseEntity<Conducteur> createConductor(@Valid @RequestBody Conducteur conducteur){
+    public ResponseEntity<Conducteur> createConducteur(@Valid @RequestBody Conducteur conducteur){
         return new ResponseEntity<>(conducteurService.saveConducteur(conducteur), HttpStatus.CREATED);
     }
 

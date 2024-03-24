@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/trip")
 @AllArgsConstructor
@@ -39,5 +41,15 @@ public class TripController {
         return new ResponseEntity<>(tripService.assignConducteurToTrip(tripId),HttpStatus.ACCEPTED);
 
     }
+    @GetMapping("/available-vehicules/{tripId}")
+    public ResponseEntity<List<Vehicule>> getAvailableVehicules(@PathVariable Long tripId){
+        return new ResponseEntity<>(tripService.getAvailableVehicules(tripId),HttpStatus.OK);
 
+    }
+
+    @GetMapping("/available-conducteurs/{tripId}")
+    public ResponseEntity<List<Conducteur>> getAvailableConducteurs(@PathVariable Long tripId){
+        return new ResponseEntity<>(tripService.getAvailableConducteurs(tripId),HttpStatus.OK);
+
+    }
 }

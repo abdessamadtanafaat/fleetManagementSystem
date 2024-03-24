@@ -80,6 +80,18 @@ public class TripServiceImpl implements TripService {
         throw new UnsupportedTripException("No available Conducteur for the trip with id of "+tripId);
     }
 
+    @Override
+    public List<Vehicule> getAvailableVehicules(long tripId) {
+        Trip trip =getTripById(tripId);
+        return vehiculeService.getAvailableVehicules(trip);
+    }
+
+    @Override
+    public List<Conducteur> getAvailableConducteurs(long tripId) {
+        Trip trip = getTripById(tripId);
+        return conducteurService.getAvailableConducteurs(trip);
+    }
+
 
     public static Trip unwrappTrip(Optional<Trip> entity, long id) {
         if (entity.isPresent()) return entity.get();
