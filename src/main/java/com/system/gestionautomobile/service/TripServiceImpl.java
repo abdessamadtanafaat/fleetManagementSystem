@@ -24,6 +24,7 @@ public class TripServiceImpl implements TripService {
     private TripRepository tripRepository;
     private ConducteurService conducteurService ;
     private VehiculeService vehiculeService;
+
     public void isTripValid(Trip trip) {
         if (trip.getDateArrivePrevue().isEqual(trip.getDateDebut())) {
             if (trip.getHeureDepart().isAfter(trip.getHeureArrivePrevue())) {
@@ -48,36 +49,29 @@ public class TripServiceImpl implements TripService {
     }
 
     @Override
-    public Vehicule assignVehiculeToTrip(long tripId) {
+    public Vehicule assignVehiculeToTrip(long tripId , long vehiculeId) {
         Trip trip =getTripById(tripId);
-        List<Vehicule> vehicules = vehiculeService.getAvailableVehicules(trip);
+        Vehicule vehicule  = vehiculeService.getVehiculeById(vehiculeId);
+        trip.setVehicule(vehicule);
+        vehicule.getTrips().add(trip);
+        vehicule.setDisponible(false);
+        return vehiculeService.saveVehicule(vehicule);
 
-        // Vérifier si des véhicules sont disponibles
-        if (!vehicules.isEmpty() ) {
-            Vehicule vehicule = vehicules.get(0);
-            trip.setVehicule(vehicule);
-            vehicule.getTrips().add(trip);
-            vehicule.setDisponible(false);
-            return vehiculeService.saveVehicule(vehicule);
-        }
-        throw new UnsupportedTripException("No available Vehicules for the trip with id of "+tripId);
+//        throw new UnsupportedTripException("No available Vehicules for the trip with id of "+tripId);
     }
 
 
     @Override
-    public Conducteur assignConducteurToTrip(long tripId) {
+    public Conducteur assignConducteurToTrip(long tripId ,long conducteurId ) {
         Trip trip = getTripById(tripId);
-        List<Conducteur> conducteurs = conducteurService.getAvailableConducteurs(trip);
-        if (!conducteurs.isEmpty() ) {
-            Conducteur conducteur = conducteurs.get(0);
-            trip.setConducteur(conducteur);
-            conducteur.getTrips().add(trip);
-
-            return conducteurService.saveConducteur(conducteur);
-        }
+        Conducteur conducteur = conducteurService.getConducteurById(conducteurId);
+        trip.setConducteur(conducteur);
+        conducteur.getTrips().add(trip);
+        return conducteurService.saveSimple(conducteur);
 
 
-        throw new UnsupportedTripException("No available Conducteur for the trip with id of "+tripId);
+
+//        throw new UnsupportedTripException("No available Conducteur for the trip with id of "+tripId);
     }
 
     @Override

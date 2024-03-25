@@ -1,9 +1,6 @@
 package com.system.gestionautomobile.service;
 
-import com.system.gestionautomobile.entity.Conducteur;
-import com.system.gestionautomobile.entity.Permis;
-import com.system.gestionautomobile.entity.PermisType;
-import com.system.gestionautomobile.entity.Trip;
+import com.system.gestionautomobile.entity.*;
 import com.system.gestionautomobile.exception.EntityNotFoundException;
 import com.system.gestionautomobile.repository.ConducteurRepository;
 import com.system.gestionautomobile.repository.PermisRepository;
@@ -24,6 +21,8 @@ import java.util.stream.Collectors;
 public class ConducteurServiceImpl implements ConducteurService {
     private ConducteurRepository conducteurRepository;
     private PermisService permisService;
+
+
 
 
     @Override
@@ -50,9 +49,8 @@ public class ConducteurServiceImpl implements ConducteurService {
     @Override
     public List<Conducteur> getAvailableConducteurs(Trip trip) {
         //check permis type
-
-
-        List<Conducteur> conducteurs = getAllConducteurs();
+        PermisCategorie permisCategorie= VehiculeToPermisCategorieService.getPermisCategorie(trip.getTypeVehicule());
+        List<Conducteur> conducteurs = conducteurRepository.findByPermisTypeCategorie(permisCategorie);
         //implements stream
         return conducteurs.
                 stream().
@@ -63,6 +61,12 @@ public class ConducteurServiceImpl implements ConducteurService {
                 .collect(Collectors.toList());
 
     }
+
+    @Override
+    public Conducteur saveSimple(Conducteur conducteur) {
+        return conducteurRepository.save(conducteur);
+    }
+
     public boolean isConducteurAvailable(Conducteur conducteur , LocalDate dateDebut , LocalDate dateArrive , LocalTime heureDepart , LocalTime heureArrive){
         Set<Trip> trips = conducteur.getTrips();
         return trips.stream().filter(trip -> compareToNewTrip(trip, dateDebut, dateArrive, heureDepart, heureArrive)).count() == 0;

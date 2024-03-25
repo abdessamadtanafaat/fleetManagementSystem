@@ -17,7 +17,7 @@ public class Permis {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;
     private String permisNum;
-    @OneToMany( mappedBy = "permis" ,cascade = CascadeType.ALL , orphanRemoval = true)
+    @OneToMany( mappedBy = "permis" )
 
     private Set<PermisType> permisType;
     private LocalDate finDeValidite ;

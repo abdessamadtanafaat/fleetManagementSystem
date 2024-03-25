@@ -30,15 +30,15 @@ public class TripController {
         return new ResponseEntity<>(tripService.getTripById(tripId),HttpStatus.OK );
     }
     //affectation de vehicule à un voyage
-    @PutMapping("/assign-vehicule/{tripId}")
-    public ResponseEntity<Vehicule> affectVehicule(@PathVariable long tripId){
-        return new ResponseEntity<>(tripService.assignVehiculeToTrip(tripId) ,HttpStatus.ACCEPTED);
+    @PutMapping("/assign-vehicule/{tripId}/{vehiculeId}")
+    public ResponseEntity<Vehicule> affectVehicule(@PathVariable long tripId ,@PathVariable long vehiculeId){
+        return new ResponseEntity<>(tripService.assignVehiculeToTrip(tripId ,vehiculeId) ,HttpStatus.ACCEPTED);
 
     }
     //affectation du conducteur à un voyage
-    @PutMapping("/assign-conducteur/{tripId}")
-    public ResponseEntity<Conducteur> affectConducteur(@PathVariable Long tripId){
-        return new ResponseEntity<>(tripService.assignConducteurToTrip(tripId),HttpStatus.ACCEPTED);
+    @PutMapping("/assign-conducteur/{tripId}/{conducteurId}")
+    public ResponseEntity<Conducteur> affectConducteur(@PathVariable Long tripId , @PathVariable Long conducteurId){
+        return new ResponseEntity<>(tripService.assignConducteurToTrip(tripId , conducteurId),HttpStatus.ACCEPTED);
 
     }
     @GetMapping("/available-vehicules/{tripId}")

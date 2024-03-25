@@ -10,8 +10,8 @@ import java.util.List;
 public interface TripService {
     public Trip saveTrip(Trip trip);
     public Trip getTripById(Long tripId);
-    public Vehicule assignVehiculeToTrip(long tripId);
-    public Conducteur assignConducteurToTrip(long tripId);
+    public Vehicule assignVehiculeToTrip(long tripId , long vehiculeId);
+    public Conducteur assignConducteurToTrip(long tripId , long conducteurId);
     public List<Vehicule> getAvailableVehicules(long tripId);
     public List<Conducteur> getAvailableConducteurs(long tripId);
 
