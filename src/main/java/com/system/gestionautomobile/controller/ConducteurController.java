@@ -25,4 +25,12 @@ public class ConducteurController {
     }
 
 
+    @GetMapping("/clearDriversCache")
+    public String clearDriversCache() {
+        conducteurService.clearDriverCache();
+        return "Cache cleared successfully";
+    }
+
+
+
 }

@@ -4,6 +4,7 @@ import com.system.gestionautomobile.entity.*;
 import com.system.gestionautomobile.exception.EntityNotFoundException;
 import com.system.gestionautomobile.repository.ConducteurRepository;
 import com.system.gestionautomobile.repository.PermisRepository;
+import com.system.gestionautomobile.service.caching.CacheManagerHelper;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 public class ConducteurServiceImpl implements ConducteurService {
     private ConducteurRepository conducteurRepository;
     private PermisService permisService;
+    private final CacheManagerHelper cacheManagerHelper;
 
 
 
@@ -116,6 +118,9 @@ public class ConducteurServiceImpl implements ConducteurService {
         else throw new EntityNotFoundException(id ,Conducteur.class);
     }
 
+    public void clearDriverCache() {
+        cacheManagerHelper.clearCache("availableDrivers");
+    }
 
 
 }
