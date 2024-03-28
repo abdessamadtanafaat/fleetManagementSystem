@@ -31,5 +31,12 @@ public class Conducteur {
     @OneToOne(optional=false , cascade = CascadeType.ALL , orphanRemoval = true)
     @JoinColumn(name="permis_id")
     private Permis permis;
+    @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "joursRepos", joinColumns = @JoinColumn(name = "id"))
+    @Column(nullable = false)
+    private List<String> joursRepos;
+    private LocalDate debutConjes ;
+    private LocalDate finConjes;
+
 
 }

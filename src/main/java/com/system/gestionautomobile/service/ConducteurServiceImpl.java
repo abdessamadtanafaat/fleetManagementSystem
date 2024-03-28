@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -30,7 +31,6 @@ public class ConducteurServiceImpl implements ConducteurService {
         Permis permis = conducteur.getPermis();
         Set<PermisType> permisTypes = permis.getPermisType();
         permis.setPermisType(null);
-
         permisService.savePermis(permis);
         permisTypes = permisService.savePermisTypes( permis,permisTypes);
         permis.setPermisType(permisTypes);
@@ -69,7 +69,18 @@ public class ConducteurServiceImpl implements ConducteurService {
 
     public boolean isConducteurAvailable(Conducteur conducteur , LocalDate dateDebut , LocalDate dateArrive , LocalTime heureDepart , LocalTime heureArrive){
         Set<Trip> trips = conducteur.getTrips();
-        return trips.stream().filter(trip -> compareToNewTrip(trip, dateDebut, dateArrive, heureDepart, heureArrive)).count() == 0;
+
+        boolean isDuringVacation = conducteur.getDebutConjes() != null && conducteur.getFinConjes() != null &&
+                !(dateDebut.isAfter(conducteur.getFinConjes()) || dateArrive.isBefore(conducteur.getDebutConjes()));
+        if(isDuringVacation)return false;
+
+        List<String> joursRepos = conducteur.getJoursRepos();
+        DayOfWeek dayOfWeek = dateDebut.getDayOfWeek();
+        boolean isDuringJoursRepos = joursRepos.contains(dayOfWeek.toString());
+        if(isDuringJoursRepos)return false;
+        boolean isAvailable = trips.stream()
+                .noneMatch(trip -> compareToNewTrip(trip, dateDebut, dateArrive, heureDepart, heureArrive));
+        return isAvailable ;
 
     }
     public boolean compareToNewTrip(Trip trip , LocalDate dateDebut , LocalDate datePrevue , LocalTime heureDepart , LocalTime heureArrive){
