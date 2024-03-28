@@ -73,7 +73,7 @@ class TripServiceImplTest {
         when(tripRepository.save(trip)).thenThrow(new RuntimeException()); // Simulate an exception during save
         // Act & Assert
         assertThrows(TripServiceException.class, () -> tripService.saveTrip(trip));
-    }*/
+    }
 
  /*   @Test
     public void testSaveTripDriverNotFound() {

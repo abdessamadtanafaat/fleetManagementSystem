@@ -12,6 +12,8 @@
 
     <!-- Adjust logging level for org.springframework packages -->
     <logger name="org.springframework" level="INFO" />
+    <logger name="org.springframework.cache" level="DEBUG"/>
+
 
     <!-- Adjust logging level for org.hibernate.tool.schema package -->
     <logger name="org.hibernate.tool.schema" level="ERROR" />

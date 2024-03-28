@@ -4,8 +4,11 @@ import com.system.gestionautomobile.entity.*;
 import com.system.gestionautomobile.exception.EntityNotFoundException;
 import com.system.gestionautomobile.repository.ConducteurRepository;
 import com.system.gestionautomobile.repository.PermisRepository;
+import com.system.gestionautomobile.service.caching.CacheManagerHelper;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.time.DayOfWeek;
@@ -22,6 +25,7 @@ import java.util.stream.Collectors;
 public class ConducteurServiceImpl implements ConducteurService {
     private ConducteurRepository conducteurRepository;
     private PermisService permisService;
+    private final CacheManagerHelper cacheManagerHelper;
 
 
 
@@ -46,8 +50,19 @@ public class ConducteurServiceImpl implements ConducteurService {
     public List<Conducteur> getAllConducteurs() {
         return (List<Conducteur>)conducteurRepository.findAll();
     }
+
+    @Transactional
+    @Cacheable(value = "availableDrivers", key = "'allDrivers'")
     @Override
     public List<Conducteur> getAvailableConducteurs(Trip trip) {
+
+        try{
+            Thread.sleep(5000);
+        } catch (InterruptedException e){
+            throw new RuntimeException(e);
+        }
+
+
         //check permis type
         PermisCategorie permisCategorie= VehiculeToPermisCategorieService.getPermisCategorie(trip.getTypeVehicule());
         List<Conducteur> conducteurs = conducteurRepository.findByPermisTypeCategorie(permisCategorie);
@@ -114,6 +129,9 @@ public class ConducteurServiceImpl implements ConducteurService {
         else throw new EntityNotFoundException(id ,Conducteur.class);
     }
 
+    public void clearDriverCache() {
+        cacheManagerHelper.clearCache("availableDrivers");
+    }
 
 
 }
