@@ -13,4 +13,9 @@ spring.data.redis.port=6379
 
 
 add this lines in the application properties : 
+
+
+-------------------------------------------------------------------------------------------------
+
+
 #$ git update-index --skip-worktree src/main/resources/application.properties
