@@ -1,29 +1,42 @@
-package com.system.gestionautomobile.service;
+package com.system.gestionautomobile.service.Trip;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.system.gestionautomobile.caching.redis.RedisConfig;
+import com.system.gestionautomobile.caching.redis.RedisUtils;
 import com.system.gestionautomobile.entity.Conducteur;
 import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.entity.Vehicule;
 import com.system.gestionautomobile.exception.*;
-import com.system.gestionautomobile.repository.ConducteurRepository;
 import com.system.gestionautomobile.repository.TripRepository;
+import com.system.gestionautomobile.service.Conducteur.ConducteurService;
+import com.system.gestionautomobile.service.Vehicule.VehiculeService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
 public class TripServiceImpl implements TripService {
 
     private TripRepository tripRepository;
-    private ConducteurService conducteurService ;
+    private ConducteurService conducteurService;
     private VehiculeService vehiculeService;
+    private Jedis jedis;
+
+    @Autowired
+    public TripServiceImpl(TripRepository tripRepository, ConducteurService conducteurService, VehiculeService vehiculeService, Jedis jedis) {
+        this.tripRepository = tripRepository;
+        this.conducteurService = conducteurService;
+        this.vehiculeService = vehiculeService;
+        this.jedis = jedis;
+    }
 
     public void isTripValid(Trip trip) {
         if (trip.getDateArrivePrevue().isEqual(trip.getDateDebut())) {
@@ -44,10 +57,50 @@ public class TripServiceImpl implements TripService {
 
     @Override
     public Trip getTripById(Long tripId) {
-        Optional<Trip> entity = tripRepository.findById(tripId);
-        return unwrappTrip(entity, tripId);
+        Trip trip = new Trip();
+
+        try {
+            String tripData = RedisUtils.get(jedis,"Trip_id : " + tripId);
+            if (tripData != null) {
+                trip = RedisUtils.deserializeObject(tripData, Trip.class);
+                System.out.println("---From the Cache---");
+            } else {
+                Optional<Trip> entity = tripRepository.findById(tripId);
+                if (entity.isPresent()) {
+                    trip = entity.get();
+                    RedisUtils.setex(jedis, "Trip_id : " + tripId, 3600, trip);
+                    System.out.println("---From the Database---");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            RedisUtils.close(jedis);
+        }
+        return trip;
     }
 
+/*    private String serializeTrip(Trip trip) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.findAndRegisterModules();
+        try {
+            return objectMapper.writeValueAsString(trip);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }*/
+
+/*    private Trip parseTrip(String tripData) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.findAndRegisterModules();
+        try {
+            return objectMapper.readValue(tripData, Trip.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }*/
     @Override
     public Vehicule assignVehiculeToTrip(long tripId , long vehiculeId) {
         Trip trip =getTripById(tripId);
@@ -56,8 +109,6 @@ public class TripServiceImpl implements TripService {
         vehicule.getTrips().add(trip);
         vehicule.setDisponible(false);
         return vehiculeService.saveVehicule(vehicule);
-
-//        throw new UnsupportedTripException("No available Vehicules for the trip with id of "+tripId);
     }
 
 
@@ -68,10 +119,6 @@ public class TripServiceImpl implements TripService {
         trip.setConducteur(conducteur);
         conducteur.getTrips().add(trip);
         return conducteurService.saveSimple(conducteur);
-
-
-
-//        throw new UnsupportedTripException("No available Conducteur for the trip with id of "+tripId);
     }
 
     @Override
@@ -81,6 +128,7 @@ public class TripServiceImpl implements TripService {
     }
 
     @Override
+    //@Cacheable(value = "myCache", key = "'trip_' +#tripId", cacheManager = "cacheManager")
     public List<Conducteur> getAvailableConducteurs(long tripId) {
         Trip trip = getTripById(tripId);
         return conducteurService.getAvailableConducteurs(trip);
@@ -93,38 +141,6 @@ public class TripServiceImpl implements TripService {
 
     }
 
-/*
-    @Override
-    public Trip assignTripToDriver(Long tripId, Long driverId) {
-        // Retrieve the trip and conducteur from the database
-        Trip proposedTrip = tripRepository.findById(tripId).orElseThrow(NotFoundTripException::new);
-        Conducteur conducteur = conducteurRepository.findById(driverId).orElseThrow(DriverNotFoundException::new);
-
-        // Check if the conducteur is available
-        if (isDriverAvailable(conducteur, proposedTrip)) {
-            proposedTrip.setConducteur(conducteur);
-            return tripRepository.save(proposedTrip);
-        } else {
-            throw new RuntimeException("Conducteur is busy and cannot be assigned this trip.");
-        }
-    }
-
-    private boolean isDriverAvailable(Conducteur conducteur, Trip proposedTrip) {
-        LocalDateTime proposedTripStart = LocalDateTime.of(proposedTrip.getDateDebut(), proposedTrip.getHeureDepart());
-        LocalDateTime proposedTripEnd = LocalDateTime.of(proposedTrip.getDateArrivePrevue(), proposedTrip.getHeureArrivePrevue());
-
-        // Filter the conducteur's trips that overlap with the proposed trip
-        boolean isAvailable = conducteur.getTrips().stream()
-                .noneMatch(existingTrip -> {
-                    LocalDateTime existingTripStart = LocalDateTime.of(existingTrip.getDateDebut(), existingTrip.getHeureDepart());
-                    LocalDateTime existingTripEnd = LocalDateTime.of(existingTrip.getDateArrivePrevue(), existingTrip.getHeureArrivePrevue());
-                    return proposedTripStart.isBefore(existingTripEnd) && proposedTripEnd.isAfter(existingTripStart);
-                });
-
-        // If the conducteur has no overlapping trips, then they are available
-        return isAvailable;
-    }
-*/
 
 
 

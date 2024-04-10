@@ -1,4 +1,4 @@
-package com.system.gestionautomobile.service;
+package com.system.gestionautomobile.service.Vehicule;
 
 import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.entity.Vehicule;

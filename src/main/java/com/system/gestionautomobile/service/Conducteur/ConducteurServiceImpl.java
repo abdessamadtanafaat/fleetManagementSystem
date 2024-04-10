@@ -1,13 +1,13 @@
-package com.system.gestionautomobile.service;
+package com.system.gestionautomobile.service.Conducteur;
 
 import com.system.gestionautomobile.entity.*;
 import com.system.gestionautomobile.exception.EntityNotFoundException;
 import com.system.gestionautomobile.repository.ConducteurRepository;
-import com.system.gestionautomobile.repository.PermisRepository;
-import com.system.gestionautomobile.service.caching.CacheManagerHelper;
+import com.system.gestionautomobile.service.Permis.PermisService;
+import com.system.gestionautomobile.service.VehiculeToPermisCategorieService;
+import com.system.gestionautomobile.caching.cacheManager.CacheManagerHelper;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 

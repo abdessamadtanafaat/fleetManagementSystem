@@ -1,18 +1,18 @@
 package com.system.gestionautomobile.controller;
 
 import com.system.gestionautomobile.entity.Conducteur;
-import com.system.gestionautomobile.service.ConducteurService;
+import com.system.gestionautomobile.service.Conducteur.ConducteurService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Set;
 
 
 @RestController
 @RequestMapping("/conducteur")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 @AllArgsConstructor
 public class ConducteurController {
 

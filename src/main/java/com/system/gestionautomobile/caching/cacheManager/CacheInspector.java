@@ -1,4 +1,4 @@
-package com.system.gestionautomobile.service.caching;
+package com.system.gestionautomobile.caching.cacheManager;
 
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;

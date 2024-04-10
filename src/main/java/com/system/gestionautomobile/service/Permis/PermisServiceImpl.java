@@ -1,4 +1,4 @@
-package com.system.gestionautomobile.service;
+package com.system.gestionautomobile.service.Permis;
 
 import com.system.gestionautomobile.entity.Permis;
 import com.system.gestionautomobile.entity.PermisType;
@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Service

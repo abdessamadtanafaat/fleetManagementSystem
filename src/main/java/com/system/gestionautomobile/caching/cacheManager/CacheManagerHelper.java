@@ -1,4 +1,4 @@
-package com.system.gestionautomobile.service.caching;
+package com.system.gestionautomobile.caching.cacheManager;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

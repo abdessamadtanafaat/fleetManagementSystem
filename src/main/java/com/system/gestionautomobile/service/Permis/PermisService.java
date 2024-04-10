@@ -1,4 +1,4 @@
-package com.system.gestionautomobile.service;
+package com.system.gestionautomobile.service.Permis;
 
 import com.system.gestionautomobile.entity.Permis;
 import com.system.gestionautomobile.entity.PermisType;
