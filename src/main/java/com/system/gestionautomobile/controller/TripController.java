@@ -1,6 +1,7 @@
 package com.system.gestionautomobile.controller;
 
 
+import com.system.gestionautomobile.aspect.LogActivity;
 import com.system.gestionautomobile.entity.Conducteur;
 import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.entity.Vehicule;
@@ -28,15 +29,16 @@ import java.util.List;
 
 public class TripController {
 
-    private static final Logger logger = LoggerFactory.getLogger(TripController.class);
 
     private TripService tripService;
     @PostMapping()
+    @LogActivity
     public ResponseEntity<Trip> saveTrip(@Valid @RequestBody Trip trip) {
         return new  ResponseEntity<>(tripService.saveTrip(trip) , HttpStatus.OK);
     }
 
     @GetMapping("/{tripId}")
+    @LogActivity
     public ResponseEntity<Trip> getTripById(@PathVariable Long tripId){
         try {
             Trip trip = tripService.getTripById(tripId);
@@ -48,6 +50,7 @@ public class TripController {
     }
 
     //affectation de vehicule à un voyage
+    @LogActivity
     @PutMapping("/assign-vehicule/{tripId}/{vehiculeId}")
     public ResponseEntity<Vehicule> affectVehicule(@PathVariable long tripId ,@PathVariable long vehiculeId){
         return new ResponseEntity<>(tripService.assignVehiculeToTrip(tripId ,vehiculeId) ,HttpStatus.ACCEPTED);
@@ -55,17 +58,20 @@ public class TripController {
     }
     //affectation du conducteur à un voyage
     @PutMapping("/assign-conducteur/{tripId}/{conducteurId}")
+    @LogActivity
     public ResponseEntity<Conducteur> affectConducteur(@PathVariable Long tripId , @PathVariable Long conducteurId){
         return new ResponseEntity<>(tripService.assignConducteurToTrip(tripId , conducteurId),HttpStatus.ACCEPTED);
 
     }
     @GetMapping("/available-vehicules/{tripId}")
+    @LogActivity
     public ResponseEntity<List<Vehicule>> getAvailableVehicules(@PathVariable Long tripId){
         return new ResponseEntity<>(tripService.getAvailableVehicules(tripId),HttpStatus.OK);
 
     }
 
     @GetMapping("/available-conducteurs/{tripId}")
+    @LogActivity
     public ResponseEntity<List<Conducteur>> getAvailableConducteurs(@PathVariable Long tripId){
         return new ResponseEntity<>(tripService.getAvailableConducteurs(tripId),HttpStatus.OK);
 

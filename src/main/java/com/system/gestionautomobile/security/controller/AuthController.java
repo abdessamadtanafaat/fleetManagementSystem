@@ -1,5 +1,6 @@
 package com.system.gestionautomobile.security.controller;
 
+import com.system.gestionautomobile.aspect.LogActivity;
 import com.system.gestionautomobile.dto.request.SignInRequest;
 import com.system.gestionautomobile.dto.request.SignUpRequest;
 import com.system.gestionautomobile.dto.response.SignInResponse;
@@ -25,6 +26,7 @@ public class AuthController {
     private CustomAuthenticationManager customAuthenticationManager;
 
     @PostMapping("/signUp")
+    @LogActivity
     public ResponseEntity<String> SignUp(
             @Valid
             @RequestBody SignUpRequest signUpRequest
@@ -33,6 +35,7 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMessage);
     }
     @PostMapping("/logOut")
+    @LogActivity
     public ResponseEntity<String> logout(@RequestBody SignInRequest signInRequest , HttpServletRequest request){
         return new ResponseEntity<>(customAuthenticationManager.logout(signInRequest.getUsername(), request.getHeader("Authorization").substring(7)), HttpStatus.OK);
     }

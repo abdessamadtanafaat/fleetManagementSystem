@@ -13,6 +13,7 @@
     <!-- Adjust logging level for org.springframework packages -->
     <logger name="org.springframework" level="INFO" />
     <logger name="org.springframework.cache" level="DEBUG"/>
+    <logger name="org.springframework.data.redis" level="DEBUG"/>
 
 
     <!-- Adjust logging level for org.hibernate.tool.schema package -->

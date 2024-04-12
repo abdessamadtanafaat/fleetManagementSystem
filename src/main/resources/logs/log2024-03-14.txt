@@ -1,5 +1,5 @@
 2024-03-14 00:00:16.297 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m8s264ms398µs400ns).
-2024-03-14 00:00:30.697 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignTripToDriver with result: Trip(id=3, dateDebut=2024-01-28, heureDepart=09:30, dateArrivePrevue=2024-01-28, heureArrivePrevue=11:30, depart=string, destination=string, typeVehicule=CAR, nbPassagers=12, autreDetails=string, vehicule=null, conducteur=Conducteur(id=1, nom=Doe, prenom=John, matricule=ABC123, dateNaissance=1990-01-01, cin=1234567890, typePermisRequis=B, trips=[])) ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 00:00:30.697 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignTripToDriver with result: Trip(id=3, dateDebut=2024-01-28, heureDepart=09:30, dateArrivePrevue=2024-01-28, heureArrivePrevue=11:30, depart=string, destination=string, typeVehicule=CAR, nbPassagers=12, autreDetails=string, vehicule=null, conducteur=Conducteur(id=1, nom=Doe, prenom=John, matricule=ABC123, dateNaissance=1990-01-01, cin=1234567890, typePermisRequis=B, trips=[])) ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 00:01:59.138 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
 2024-03-14 00:01:59.149 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 00:01:59.187 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -100,9 +100,9 @@ Caused by: java.lang.ClassNotFoundException: com.system.gestionautomobile.entity
 2024-03-14 00:03:29.981 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 00:03:29.982 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 00:03:29.985 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2024-03-14 00:03:30.151 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignTripToDriver with arguments: [3, 1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 00:03:30.151 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignTripToDriver with arguments: [3, 1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 00:04:15.808 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s697ms724µs800ns).
-2024-03-14 00:04:41.401 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignTripToDriver with result: Trip(id=3, dateDebut=2024-01-28, heureDepart=09:30, dateArrivePrevue=2024-01-28, heureArrivePrevue=11:30, depart=string, destination=string, typeVehicule=CAR, nbPassagers=12, autreDetails=string, vehicule=null, conducteur=Conducteur(id=1, nom=Doe, prenom=John, matricule=ABC123, dateNaissance=1990-01-01, cin=1234567890, typePermisRequis=B, trips=[])) ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 00:04:41.401 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignTripToDriver with result: Trip(id=3, dateDebut=2024-01-28, heureDepart=09:30, dateArrivePrevue=2024-01-28, heureArrivePrevue=11:30, depart=string, destination=string, typeVehicule=CAR, nbPassagers=12, autreDetails=string, vehicule=null, conducteur=Conducteur(id=1, nom=Doe, prenom=John, matricule=ABC123, dateNaissance=1990-01-01, cin=1234567890, typePermisRequis=B, trips=[])) ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 00:07:34.079 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-14 00:07:34.086 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-14 00:07:34.111 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
@@ -141,11 +141,11 @@ Caused by: java.lang.ClassNotFoundException: com.system.gestionautomobile.entity
 2024-03-14 10:44:58.201 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/v1/trips.]
 2024-03-14 10:46:03.307 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/v1/trips/createTrip.]
 2024-03-14 10:46:14.889 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/v1/trip/createTrip.]
-2024-03-14 10:46:27.987 [http-nio-8080-exec-7] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=null, heureDepart=null, dateArrivePrevue=null, heureArrivePrevue=null, depart=null, destination=string, typeVehicule=null, nbPassagers=0, autreDetails=null, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 10:46:27.987 [http-nio-8080-exec-7] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=null, heureDepart=null, dateArrivePrevue=null, heureArrivePrevue=null, depart=null, destination=string, typeVehicule=null, nbPassagers=0, autreDetails=null, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 10:46:27.996 [http-nio-8080-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.time.chrono.ChronoLocalDate)" because the return value of "com.system.gestionautomobile.entity.Trip.getDateArrivePrevue()" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.time.chrono.ChronoLocalDate)" because the return value of "com.system.gestionautomobile.entity.Trip.getDateArrivePrevue()" is null
-	at com.system.gestionautomobile.service.TripServiceImpl.isTripValid(TripServiceImpl.java:31)
-	at com.system.gestionautomobile.service.TripServiceImpl.saveTrip(TripServiceImpl.java:43)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl.isTripValid(TripServiceImpl.java:31)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl.saveTrip(TripServiceImpl.java:43)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -164,7 +164,7 @@ java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
-	at com.system.gestionautomobile.service.TripServiceImpl$$SpringCGLIB$$0.saveTrip(<generated>)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl$$SpringCGLIB$$0.saveTrip(<generated>)
 	at com.system.gestionautomobile.controller.TripController.saveTrip(TripController.java:22)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -374,11 +374,11 @@ java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.
 2024-03-14 10:48:47.351 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 10:48:47.351 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 10:48:47.352 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 10:48:47.369 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=null, heureDepart=null, dateArrivePrevue=null, heureArrivePrevue=null, depart=null, destination=string, typeVehicule=null, nbPassagers=0, autreDetails=null, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 10:48:47.369 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=null, heureDepart=null, dateArrivePrevue=null, heureArrivePrevue=null, depart=null, destination=string, typeVehicule=null, nbPassagers=0, autreDetails=null, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 10:48:47.379 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.time.chrono.ChronoLocalDate)" because the return value of "com.system.gestionautomobile.entity.Trip.getDateArrivePrevue()" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.time.chrono.ChronoLocalDate)" because the return value of "com.system.gestionautomobile.entity.Trip.getDateArrivePrevue()" is null
-	at com.system.gestionautomobile.service.TripServiceImpl.isTripValid(TripServiceImpl.java:31)
-	at com.system.gestionautomobile.service.TripServiceImpl.saveTrip(TripServiceImpl.java:43)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl.isTripValid(TripServiceImpl.java:31)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl.saveTrip(TripServiceImpl.java:43)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -397,7 +397,7 @@ java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
-	at com.system.gestionautomobile.service.TripServiceImpl$$SpringCGLIB$$0.saveTrip(<generated>)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl$$SpringCGLIB$$0.saveTrip(<generated>)
 	at com.system.gestionautomobile.controller.TripController.saveTrip(TripController.java:22)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -545,8 +545,8 @@ java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.
 2024-03-14 10:51:03.264 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 10:51:03.264 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 10:51:03.266 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2024-03-14 10:51:03.280 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 10:51:03.393 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=3, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 10:51:03.280 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 10:51:03.393 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=3, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 10:51:20.719 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/trip/3.]
 2024-03-14 10:51:25.861 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 10:51:25.864 [Thread-35] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
@@ -582,8 +582,8 @@ java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.
 2024-03-14 10:51:41.996 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 10:51:41.996 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 10:51:41.997 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 10:51:42.001 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getTripById with arguments: [3] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 10:51:42.071 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getTripById with result: Trip(id=3, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 10:51:42.001 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getTripById with arguments: [3] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 10:51:42.071 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getTripById with result: Trip(id=3, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 10:51:53.736 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 10:51:53.738 [Thread-39] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 10:51:53.754 [Thread-39] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -649,7 +649,7 @@ java.lang.NullPointerException: Cannot invoke "java.time.LocalDate.isEqual(java.
 2024-03-14 10:52:04.089 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 10:52:04.089 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 10:52:04.091 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2024-03-14 10:52:04.102 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.5, permisType=B, disponible=true, equipements=Air conditioning, GPS, trips=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 10:52:04.102 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.5, permisType=B, disponible=true, equipements=Air conditioning, GPS, trips=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 10:52:04.127 [http-nio-8080-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1364, SQLState: HY000
 2024-03-14 10:52:04.127 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Field 'nb_passagers' doesn't have a default value
 2024-03-14 10:52:04.143 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.orm.jpa.JpaSystemException: could not execute statement [Field 'nb_passagers' doesn't have a default value] [insert into vehicule (disponible,equipements,kilometrage,marque,permis_type,vehicule_type) values (?,?,?,?,?,?)]] with root cause
@@ -725,7 +725,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
 	at jdk.proxy15/jdk.proxy15.$Proxy204.save(Unknown Source)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -744,7 +744,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
 	at com.system.gestionautomobile.controller.VehicleController.saveVehicle(VehicleController.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -923,7 +923,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 2024-03-14 10:52:42.026 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 10:52:42.026 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 10:52:42.027 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 10:52:42.039 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.5, permisType=B, disponible=true, equipements=Air conditioning, GPS, trips=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 10:52:42.039 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.5, permisType=B, disponible=true, equipements=Air conditioning, GPS, trips=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 10:52:42.044 [http-nio-8080-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1364, SQLState: HY000
 2024-03-14 10:52:42.044 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Field 'nb_passagers' doesn't have a default value
 2024-03-14 10:52:42.047 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.orm.jpa.JpaSystemException: could not execute statement [Field 'nb_passagers' doesn't have a default value] [insert into vehicule (disponible,equipements,kilometrage,marque,permis_type,vehicule_type) values (?,?,?,?,?,?)]] with root cause
@@ -999,7 +999,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
 	at jdk.proxy19/jdk.proxy19.$Proxy228.save(Unknown Source)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1018,7 +1018,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
 	at com.system.gestionautomobile.controller.VehicleController.saveVehicle(VehicleController.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -1135,7 +1135,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 2024-03-14 10:53:49.118 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 10:53:49.118 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 10:53:49.119 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 10:53:49.127 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 10:53:49.127 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 10:53:49.132 [http-nio-8080-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1364, SQLState: HY000
 2024-03-14 10:53:49.132 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Field 'nb_passagers' doesn't have a default value
 2024-03-14 10:53:49.134 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.orm.jpa.JpaSystemException: could not execute statement [Field 'nb_passagers' doesn't have a default value] [insert into vehicule (disponible,equipements,kilometrage,marque,permis_type,vehicule_type) values (?,?,?,?,?,?)]] with root cause
@@ -1211,7 +1211,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
 	at jdk.proxy21/jdk.proxy21.$Proxy240.save(Unknown Source)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1230,7 +1230,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
 	at com.system.gestionautomobile.controller.VehicleController.saveVehicle(VehicleController.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -1282,7 +1282,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2024-03-14 10:53:50.135 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 10:53:50.135 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 10:53:50.139 [http-nio-8080-exec-4] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1364, SQLState: HY000
 2024-03-14 10:53:50.139 [http-nio-8080-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Field 'nb_passagers' doesn't have a default value
 2024-03-14 10:53:50.141 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.orm.jpa.JpaSystemException: could not execute statement [Field 'nb_passagers' doesn't have a default value] [insert into vehicule (disponible,equipements,kilometrage,marque,permis_type,vehicule_type) values (?,?,?,?,?,?)]] with root cause
@@ -1358,7 +1358,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
 	at jdk.proxy21/jdk.proxy21.$Proxy240.save(Unknown Source)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1377,7 +1377,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
 	at com.system.gestionautomobile.controller.VehicleController.saveVehicle(VehicleController.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -1494,7 +1494,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 2024-03-14 10:55:07.307 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 10:55:07.307 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 10:55:07.308 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 10:55:07.319 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 10:55:07.319 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 10:55:07.323 [http-nio-8080-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1364, SQLState: HY000
 2024-03-14 10:55:07.324 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Field 'nb_passagers' doesn't have a default value
 2024-03-14 10:55:07.326 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.orm.jpa.JpaSystemException: could not execute statement [Field 'nb_passagers' doesn't have a default value] [insert into vehicule (disponible,equipements,kilometrage,marque,permis_type,vehicule_type) values (?,?,?,?,?,?)]] with root cause
@@ -1570,7 +1570,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
 	at jdk.proxy23/jdk.proxy23.$Proxy252.save(Unknown Source)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl.saveVehicule(VehiculeServiceImpl.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1589,7 +1589,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
-	at com.system.gestionautomobile.service.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
+	at com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl$$SpringCGLIB$$0.saveVehicule(<generated>)
 	at com.system.gestionautomobile.controller.VehicleController.saveVehicle(VehicleController.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -1769,13 +1769,13 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 2024-03-14 10:57:45.798 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 10:57:45.798 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 10:57:45.799 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 10:57:45.943 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 10:57:46.064 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 10:57:51.717 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 10:57:51.741 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null) ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 10:57:45.943 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 10:57:46.064 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 10:57:51.717 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 10:57:51.741 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null) ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 10:58:04.399 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/vehicle/1.]
-2024-03-14 10:58:13.771 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getVehiculeById with arguments: [1] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 10:58:13.857 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getVehiculeById with result: Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[]) ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 10:58:13.771 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getVehiculeById with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 10:58:13.857 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getVehiculeById with result: Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[]) ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 10:58:46.765 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 10:58:46.771 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 10:58:46.788 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -1810,7 +1810,7 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 2024-03-14 11:00:00.477 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:00:00.477 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:00:00.478 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:00:00.482 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:00:00.482 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:00:00.499 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.system.gestionautomobile.exception.EntityNotFoundException: The trip with id '1' does not exist in our records]
 2024-03-14 11:00:20.018 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 11:00:20.020 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
@@ -1912,14 +1912,14 @@ java.sql.SQLException: Field 'nb_passagers' doesn't have a default value
 2024-03-14 11:00:57.243 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:00:57.244 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:00:57.245 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:00:57.257 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:00:57.279 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:01:01.530 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:01:01.543 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null) ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:01:12.262 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:01:12.276 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:01:12.423 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[])] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:01:12.426 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [[FAILED toString()]] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:00:57.257 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:00:57.279 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:01:01.530 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:01:01.543 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null) ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:01:12.262 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:01:12.276 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:01:12.423 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[])] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:01:12.426 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [[FAILED toString()]] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:01:12.460 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: java.lang.StackOverflowError] with root cause
 java.lang.StackOverflowError: null
 	at com.system.gestionautomobile.entity.Vehicule.hashCode(Vehicule.java:17)
@@ -2981,9 +2981,9 @@ java.lang.StackOverflowError: null
 2024-03-14 11:02:21.974 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:02:21.975 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:02:21.976 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:02:22.168 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:02:22.294 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:02:45.677 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: getTripById with arguments: [3] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:02:22.168 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:02:22.294 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:02:45.677 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: getTripById with arguments: [3] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:02:45.761 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.system.gestionautomobile.exception.EntityNotFoundException: The trip with id '3' does not exist in our records]
 2024-03-14 11:03:03.593 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-14 11:03:03.652 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
@@ -3020,15 +3020,15 @@ java.lang.StackOverflowError: null
 2024-03-14 11:03:36.809 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:03:36.810 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:03:36.811 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:03:36.991 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:03:37.097 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:03:41.417 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:03:41.441 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null) ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:03:45.336 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:04:21.594 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:04:21.751 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[])] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:03:36.991 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:03:37.097 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:03:41.417 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [Vehicule(id=0, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:03:41.441 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=null) ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:03:45.336 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:04:21.594 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:04:21.751 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[])] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:09:01.240 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m39s649ms927µs200ns).
-2024-03-14 11:09:01.246 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [[FAILED toString()]] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:09:01.246 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [[FAILED toString()]] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:09:01.416 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-14 11:09:01.423 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-14 11:09:01.446 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
@@ -3095,15 +3095,15 @@ java.lang.StackOverflowError: null
 2024-03-14 11:09:58.508 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:09:58.508 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:09:58.510 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:09:58.711 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:09:58.818 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=2, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:10:08.093 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:10:17.489 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:10:17.667 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[])] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:09:58.711 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [Trip(id=0, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:09:58.818 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: Trip(id=2, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null) ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:10:08.093 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:10:17.489 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:10:17.667 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[])] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:10:40.038 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 11:11:27.125 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=1m728ms158µs400ns).
 2024-03-14 11:11:27.130 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
-2024-03-14 11:11:27.129 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [[FAILED toString()]] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:11:27.129 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [[FAILED toString()]] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:11:27.294 [http-nio-8080-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: java.lang.StackOverflowError] with root cause
 java.lang.StackOverflowError: null
 	at com.system.gestionautomobile.entity.Vehicule.hashCode(Vehicule.java:17)
@@ -4330,11 +4330,11 @@ Caused by: java.nio.channels.ClosedChannelException: null
 2024-03-14 11:12:37.000 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:12:37.000 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:12:37.002 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2024-03-14 11:12:37.068 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:12:40.004 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:12:40.148 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[])] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:12:37.068 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:12:40.004 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [Trip(id=1, dateDebut=2024-03-15, heureDepart=08:30, dateArrivePrevue=2024-03-15, heureArrivePrevue=12:00, depart=Adresse de départ, destination=Adresse de destination, typeVehicule=CAR, nbPassagers=4, autreDetails=Détails supplémentaires du voyage, vehicule=null, conducteur=null)] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:12:40.148 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [Vehicule(id=1, marque=Toyota, vehiculeType=CAR, kilometrage=50000.0, permisType=B, disponible=true, equipements=Air conditionné, Lecteur CD, trips=[])] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:13:36.422 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m12s217ms399µs500ns).
-2024-03-14 11:13:36.425 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [[FAILED toString()]] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:13:36.425 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [[FAILED toString()]] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:13:36.798 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-14 11:13:36.803 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-14 11:13:36.825 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
@@ -4370,12 +4370,12 @@ Caused by: java.nio.channels.ClosedChannelException: null
 2024-03-14 11:13:57.669 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:13:57.669 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:13:57.670 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:13:57.747 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:14:00.934 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@4ba4ad65] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:14:01.080 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@659a4bf1] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:14:06.896 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@659a4bf1] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:14:06.971 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@659a4bf1 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:14:06.971 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@659a4bf1 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:13:57.747 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:14:00.934 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@4ba4ad65] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:14:01.080 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@659a4bf1] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:14:06.896 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@659a4bf1] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:14:06.971 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@659a4bf1 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:14:06.971 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@659a4bf1 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:14:07.176 [http-nio-8080-exec-2] WARN  c.s.g.e.SystemExceptionHandler - Response already committed. Ignoring: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Infinite recursion (StackOverflowError)
 2024-03-14 11:14:07.177 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Infinite recursion (StackOverflowError)]
 2024-03-14 11:15:20.172 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
@@ -4631,12 +4631,12 @@ Caused by: java.lang.ClassNotFoundException: com.system.gestionautomobile.entity
 2024-03-14 11:15:57.188 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:15:57.188 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:15:57.190 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2024-03-14 11:15:57.195 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:16:00.198 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@47045c6e] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:16:00.205 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@532b01bf] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:16:15.736 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@532b01bf] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:16:15.746 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@532b01bf ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:16:15.746 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@532b01bf ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:15:57.195 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:16:00.198 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@47045c6e] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:16:00.205 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@532b01bf] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:16:15.736 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@532b01bf] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:16:15.746 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@532b01bf ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:16:15.746 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@532b01bf ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:16:16.143 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 11:16:16.146 [Thread-25] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 11:16:16.161 [Thread-25] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -4734,18 +4734,18 @@ Caused by: java.lang.ClassNotFoundException: com.system.gestionautomobile.entity
 2024-03-14 11:17:21.542 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:17:21.542 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:17:21.544 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:17:21.742 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@820b443] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:17:21.849 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@820b443 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:17:25.923 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@411ef9bb] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:17:25.940 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@411ef9bb ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:17:34.513 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:17:21.742 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@820b443] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:17:21.849 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@820b443 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:17:25.923 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@411ef9bb] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:17:25.940 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@411ef9bb ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:17:34.513 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:17:37.732 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.system.gestionautomobile.exception.EntityNotFoundException: The trip with id '2' does not exist in our records]
-2024-03-14 11:17:43.733 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:17:47.810 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@7ebebd35] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:17:47.968 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@16c281ea] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:17:52.108 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@16c281ea] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:17:52.143 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@16c281ea ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:17:52.143 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@16c281ea ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:17:43.733 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:17:47.810 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@7ebebd35] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:17:47.968 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@16c281ea] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:17:52.108 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@16c281ea] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:17:52.143 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@16c281ea ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:17:52.143 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@16c281ea ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:18:13.085 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
 2024-03-14 11:18:13.093 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 11:18:13.113 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -4771,7 +4771,7 @@ Caused by: java.lang.ClassNotFoundException: com.system.gestionautomobile.entity
 2024-03-14 11:18:14.435 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
 2024-03-14 11:18:14.634 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-03-14 11:18:14.828 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-14 11:18:15.107 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tripController' defined in file [C:\Users\hp\Desktop\Etude supérieur\S8\Genie logicielle\fleetManagementSystem\target\classes\com\system\gestionautomobile\controller\TripController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.system.gestionautomobile.service.TripService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-03-14 11:18:15.107 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tripController' defined in file [C:\Users\hp\Desktop\Etude supérieur\S8\Genie logicielle\fleetManagementSystem\target\classes\com\system\gestionautomobile\controller\TripController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.system.gestionautomobile.service.Trip.TripService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 2024-03-14 11:18:15.108 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-14 11:18:15.179 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
 2024-03-14 11:18:15.191 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
@@ -4787,12 +4787,12 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.system.gestionautomobile.controller.TripController required a bean of type 'com.system.gestionautomobile.service.TripService' that could not be found.
+Parameter 0 of constructor in com.system.gestionautomobile.controller.TripController required a bean of type 'com.system.gestionautomobile.service.Trip.TripService' that could not be found.
 
 
 Action:
 
-Consider defining a bean of type 'com.system.gestionautomobile.service.TripService' in your configuration.
+Consider defining a bean of type 'com.system.gestionautomobile.service.Trip.TripService' in your configuration.
 
 2024-03-14 11:18:16.741 [restartedMain] INFO  c.s.g.GestionAutomobileApplication - Starting GestionAutomobileApplication using Java 17.0.6 with PID 756 (C:\Users\hp\Desktop\Etude supérieur\S8\Genie logicielle\fleetManagementSystem\target\classes started by hp in C:\Users\hp\Desktop\Etude supérieur\S8\Genie logicielle\fleetManagementSystem)
 2024-03-14 11:18:16.741 [restartedMain] INFO  c.s.g.GestionAutomobileApplication - No active profile set, falling back to 1 default profile: "default"
@@ -4854,16 +4854,16 @@ Consider defining a bean of type 'com.system.gestionautomobile.service.TripServi
 2024-03-14 11:18:34.478 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:18:34.478 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:18:34.479 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:18:34.489 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7e0f6979] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:18:34.500 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7e0f6979 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:18:39.081 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@478c7a83] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:18:39.090 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@478c7a83 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:18:43.310 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:18:47.377 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@72e56e9c] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:18:47.384 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@25c11d55] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:18:50.734 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@25c11d55] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:18:50.745 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@25c11d55 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:18:50.746 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@25c11d55 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:18:34.489 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7e0f6979] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:18:34.500 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7e0f6979 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:18:39.081 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@478c7a83] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:18:39.090 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@478c7a83 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:18:43.310 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:18:47.377 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@72e56e9c] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:18:47.384 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@25c11d55] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:18:50.734 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@25c11d55] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:18:50.745 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@25c11d55 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:18:50.746 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@25c11d55 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:18:51.143 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 11:18:51.145 [Thread-14] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 11:18:51.159 [Thread-14] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -4929,8 +4929,8 @@ Consider defining a bean of type 'com.system.gestionautomobile.service.TripServi
 2024-03-14 11:19:18.802 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:19:18.802 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:19:18.803 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:19:18.816 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@77428b84] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:19:18.825 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@77428b84 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:19:18.816 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@77428b84] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:19:18.825 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@77428b84 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:19:27.221 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 11:19:27.223 [Thread-22] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 11:19:27.237 [Thread-22] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -4965,18 +4965,18 @@ Consider defining a bean of type 'com.system.gestionautomobile.service.TripServi
 2024-03-14 11:19:40.566 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:19:40.567 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:19:40.568 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:19:40.577 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@1cb1bb5] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:19:40.585 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@1cb1bb5 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:19:42.034 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@3664644f] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:19:42.039 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@3664644f ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:19:48.850 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:20:02.617 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@6470009] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:20:02.751 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@6470009 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:20:02.756 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@6632e830] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:20:02.763 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@e4b1caa] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:20:03.224 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@e4b1caa] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:20:03.235 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@e4b1caa ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:20:03.235 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@e4b1caa ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:19:40.577 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@1cb1bb5] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:19:40.585 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@1cb1bb5 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:19:42.034 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@3664644f] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:19:42.039 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@3664644f ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:19:48.850 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:20:02.617 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@6470009] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:20:02.751 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@6470009 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:20:02.756 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@6632e830] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:20:02.763 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@e4b1caa] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:20:03.224 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@e4b1caa] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:20:03.235 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@e4b1caa ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:20:03.235 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@e4b1caa ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:20:03.648 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 11:20:03.650 [Thread-26] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 11:20:03.662 [Thread-26] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -5011,7 +5011,7 @@ Consider defining a bean of type 'com.system.gestionautomobile.service.TripServi
 2024-03-14 11:20:10.686 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:20:10.686 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:20:10.687 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:20:10.689 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:20:10.689 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:20:12.737 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.system.gestionautomobile.exception.EntityNotFoundException: The trip with id '1' does not exist in our records]
 2024-03-14 11:20:13.562 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 11:20:13.565 [Thread-30] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
@@ -5141,20 +5141,20 @@ Consider defining a bean of type 'com.system.gestionautomobile.service.TripServi
 2024-03-14 11:21:00.190 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:21:00.190 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:21:00.192 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:21:00.369 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@3a71690f] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:21:00.477 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@3a71690f ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:21:03.872 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@4dfa70e2] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:21:03.882 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@4dfa70e2 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:21:07.607 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@4e4434e9] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:21:07.629 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@4e4434e9 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:21:11.479 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:21:13.943 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@568a454] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:21:14.150 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@52351e65] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:21:00.369 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@3a71690f] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:21:00.477 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@3a71690f ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:21:03.872 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@4dfa70e2] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:21:03.882 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@4dfa70e2 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:21:07.607 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@4e4434e9] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:21:07.629 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@4e4434e9 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:21:11.479 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:21:13.943 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@568a454] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:21:14.150 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@52351e65] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:21:14.928 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2024-03-14 11:21:15.289 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@52351e65] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:21:15.289 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@52351e65] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:21:15.290 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
-2024-03-14 11:21:15.335 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@52351e65 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:21:15.336 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@52351e65 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:21:15.335 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@52351e65 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:21:15.336 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@52351e65 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:21:15.347 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-14 11:21:15.408 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-14 11:21:15.436 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
@@ -5187,7 +5187,7 @@ Consider defining a bean of type 'com.system.gestionautomobile.service.TripServi
 2024-03-14 11:21:26.145 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:21:26.145 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:21:26.147 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2024-03-14 11:21:26.150 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:21:26.150 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:21:30.673 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.system.gestionautomobile.exception.EntityNotFoundException: The trip with id '1' does not exist in our records]
 2024-03-14 11:21:31.493 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 11:21:31.495 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
@@ -5255,21 +5255,21 @@ Consider defining a bean of type 'com.system.gestionautomobile.service.TripServi
 2024-03-14 11:22:06.359 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:22:06.360 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:22:06.361 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:22:06.511 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@31a2c55a] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:22:06.596 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@31a2c55a ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:22:07.923 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@114cbacc] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:22:07.936 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@114cbacc ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:22:11.987 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@7b9fbe3c] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:22:12.000 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@7b9fbe3c ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:22:15.439 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:22:15.504 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@211e05d2] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:22:15.625 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@7fdce63] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:22:15.637 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@7fdce63] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:22:15.667 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@7fdce63 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:22:15.667 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@7fdce63 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:22:20.254 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:22:20.263 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@22b23619] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:22:20.267 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:22:06.511 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@31a2c55a] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:22:06.596 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@31a2c55a ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:22:07.923 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@114cbacc] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:22:07.936 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@114cbacc ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:22:11.987 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@7b9fbe3c] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:22:12.000 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@7b9fbe3c ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:22:15.439 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:22:15.504 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@211e05d2] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:22:15.625 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@7fdce63] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:22:15.637 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@7fdce63] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:22:15.667 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@7fdce63 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:22:15.667 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@7fdce63 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:22:20.254 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:22:20.263 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@22b23619] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:22:20.267 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:22:20.270 [http-nio-8080-exec-6] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0] with root cause
 java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
@@ -5277,7 +5277,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
 	at java.base/java.util.Objects.checkIndex(Objects.java:359)
 	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at com.system.gestionautomobile.service.TripServiceImpl.assignVehiculeToTrip(TripServiceImpl.java:58)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl.assignVehiculeToTrip(TripServiceImpl.java:58)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -5296,7 +5296,7 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
-	at com.system.gestionautomobile.service.TripServiceImpl$$SpringCGLIB$$0.assignVehiculeToTrip(<generated>)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl$$SpringCGLIB$$0.assignVehiculeToTrip(<generated>)
 	at com.system.gestionautomobile.controller.TripController.affectVehicule(TripController.java:32)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -5383,24 +5383,24 @@ java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
 2024-03-14 11:26:29.427 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:26:29.427 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:26:29.428 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:26:29.580 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@14c70907] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:26:29.664 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@14c70907 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:26:33.828 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7b9fbe3c] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:26:33.838 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7b9fbe3c ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:26:35.725 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@5256abf3] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:26:35.745 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@5256abf3 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:26:40.222 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:26:40.281 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@211e05d2] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:26:40.402 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@7fdce63] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:26:40.414 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@7fdce63] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:26:40.444 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@7fdce63 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:26:40.444 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@7fdce63 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:26:44.505 [http-nio-8080-exec-7] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:26:44.513 [http-nio-8080-exec-7] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@d5175ed] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:26:44.518 [http-nio-8080-exec-7] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
+2024-03-14 11:26:29.580 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@14c70907] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:26:29.664 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@14c70907 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:26:33.828 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7b9fbe3c] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:26:33.838 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7b9fbe3c ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:26:35.725 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@5256abf3] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:26:35.745 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@5256abf3 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:26:40.222 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:26:40.281 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@211e05d2] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:26:40.402 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@7fdce63] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:26:40.414 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@7fdce63] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:26:40.444 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@7fdce63 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:26:40.444 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@7fdce63 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:26:44.505 [http-nio-8080-exec-7] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:26:44.513 [http-nio-8080-exec-7] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@d5175ed] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:26:44.518 [http-nio-8080-exec-7] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
 2024-03-14 11:26:44.521 [http-nio-8080-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalStateException: Aucun véhicule disponible pour le voyage.] with root cause
 java.lang.IllegalStateException: Aucun véhicule disponible pour le voyage.
-	at com.system.gestionautomobile.service.TripServiceImpl.assignVehiculeToTrip(TripServiceImpl.java:67)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl.assignVehiculeToTrip(TripServiceImpl.java:67)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -5419,7 +5419,7 @@ java.lang.IllegalStateException: Aucun véhicule disponible pour le voyage.
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
-	at com.system.gestionautomobile.service.TripServiceImpl$$SpringCGLIB$$0.assignVehiculeToTrip(<generated>)
+	at com.system.gestionautomobile.service.Trip.TripServiceImpl$$SpringCGLIB$$0.assignVehiculeToTrip(<generated>)
 	at com.system.gestionautomobile.controller.TripController.affectVehicule(TripController.java:32)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -5506,18 +5506,18 @@ java.lang.IllegalStateException: Aucun véhicule disponible pour le voyage.
 2024-03-14 11:27:38.467 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:27:38.467 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:27:38.469 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2024-03-14 11:27:38.648 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@659b45fb] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:27:38.742 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@659b45fb ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:27:40.729 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7b9fbe3c] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:27:40.742 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7b9fbe3c ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:27:45.043 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:27:45.115 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@2cc86bca] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:27:45.235 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:27:45.235 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: null ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:27:57.132 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:27:57.139 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@5f5969df] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:27:57.142 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:27:57.143 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: null ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:27:38.648 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@659b45fb] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:27:38.742 [http-nio-8080-exec-1] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@659b45fb ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:27:40.729 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7b9fbe3c] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:27:40.742 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7b9fbe3c ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:27:45.043 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:27:45.115 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@2cc86bca] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:27:45.235 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:27:45.235 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: null ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:27:57.132 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:27:57.139 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@5f5969df] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:27:57.142 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:27:57.143 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: null ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:28:33.777 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
 2024-03-14 11:28:33.782 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 11:28:33.799 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -5543,7 +5543,7 @@ java.lang.IllegalStateException: Aucun véhicule disponible pour le voyage.
 2024-03-14 11:28:35.128 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
 2024-03-14 11:28:35.437 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-03-14 11:28:35.673 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-14 11:28:35.887 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tripController' defined in file [C:\Users\hp\Desktop\Etude supérieur\S8\Genie logicielle\fleetManagementSystem\target\classes\com\system\gestionautomobile\controller\TripController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.system.gestionautomobile.service.TripService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-03-14 11:28:35.887 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tripController' defined in file [C:\Users\hp\Desktop\Etude supérieur\S8\Genie logicielle\fleetManagementSystem\target\classes\com\system\gestionautomobile\controller\TripController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.system.gestionautomobile.service.Trip.TripService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 2024-03-14 11:28:35.888 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-14 11:28:35.929 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
 2024-03-14 11:28:35.937 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
@@ -5559,12 +5559,12 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in com.system.gestionautomobile.controller.TripController required a bean of type 'com.system.gestionautomobile.service.TripService' that could not be found.
+Parameter 0 of constructor in com.system.gestionautomobile.controller.TripController required a bean of type 'com.system.gestionautomobile.service.Trip.TripService' that could not be found.
 
 
 Action:
 
-Consider defining a bean of type 'com.system.gestionautomobile.service.TripService' in your configuration.
+Consider defining a bean of type 'com.system.gestionautomobile.service.Trip.TripService' in your configuration.
 
 2024-03-14 11:28:37.466 [restartedMain] INFO  c.s.g.GestionAutomobileApplication - Starting GestionAutomobileApplication using Java 17.0.6 with PID 14488 (C:\Users\hp\Desktop\Etude supérieur\S8\Genie logicielle\fleetManagementSystem\target\classes started by hp in C:\Users\hp\Desktop\Etude supérieur\S8\Genie logicielle\fleetManagementSystem)
 2024-03-14 11:28:37.467 [restartedMain] INFO  c.s.g.GestionAutomobileApplication - No active profile set, falling back to 1 default profile: "default"
@@ -5658,22 +5658,22 @@ Consider defining a bean of type 'com.system.gestionautomobile.service.TripServi
 2024-03-14 11:29:24.596 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-03-14 11:29:24.597 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-03-14 11:29:24.598 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2024-03-14 11:29:24.751 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7d88315a] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:29:24.838 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7d88315a ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:29:26.038 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7f749003] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:29:26.050 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7f749003 ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:29:30.217 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@3e3412b3] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:29:30.230 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@3e3412b3 ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:29:34.075 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:29:34.137 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@8768fbd] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:29:34.264 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@6adbfe8c] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:29:34.275 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@6adbfe8c] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:29:34.306 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@6adbfe8c ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:29:34.306 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@6adbfe8c ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:29:37.878 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
-2024-03-14 11:29:37.889 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@1c7c29df] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:29:37.894 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.VehiculeServiceImpl
-2024-03-14 11:29:37.894 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: null ,Class Name:com.system.gestionautomobile.service.TripServiceImpl
+2024-03-14 11:29:24.751 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7d88315a] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:29:24.838 [http-nio-8080-exec-2] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7d88315a ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:29:26.038 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveTrip with arguments: [com.system.gestionautomobile.entity.Trip@7f749003] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:29:26.050 [http-nio-8080-exec-3] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveTrip with result: com.system.gestionautomobile.entity.Trip@7f749003 ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:29:30.217 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@3e3412b3] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:29:30.230 [http-nio-8080-exec-4] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@3e3412b3 ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:29:34.075 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [2] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:29:34.137 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@8768fbd] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:29:34.264 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [com.system.gestionautomobile.entity.Vehicule@6adbfe8c] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:29:34.275 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Entering method: saveVehicule with arguments: [com.system.gestionautomobile.entity.Vehicule@6adbfe8c] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:29:34.306 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: saveVehicule with result: com.system.gestionautomobile.entity.Vehicule@6adbfe8c ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:29:34.306 [http-nio-8080-exec-5] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: com.system.gestionautomobile.entity.Vehicule@6adbfe8c ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:29:37.878 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: assignVehiculeToTrip with arguments: [1] ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
+2024-03-14 11:29:37.889 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Entering method: getAvailableVehicules with arguments: [com.system.gestionautomobile.entity.Trip@1c7c29df] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:29:37.894 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Exiting method: getAvailableVehicules with result: [] ,Class Name:com.system.gestionautomobile.service.Vehicule.VehiculeServiceImpl
+2024-03-14 11:29:37.894 [http-nio-8080-exec-6] INFO  c.s.g.aspect.LoggingAspect - Exiting method: assignVehiculeToTrip with result: null ,Class Name:com.system.gestionautomobile.service.Trip.TripServiceImpl
 2024-03-14 11:31:49.071 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
 2024-03-14 11:31:49.077 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
 2024-03-14 11:31:49.092 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'

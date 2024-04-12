@@ -4,17 +4,15 @@ import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.entity.VehiculeType;
 import com.system.gestionautomobile.exception.InvalidDateOrderException;
 import com.system.gestionautomobile.repository.TripRepository;
+import com.system.gestionautomobile.service.Trip.TripServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
