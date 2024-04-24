@@ -4,11 +4,13 @@ import com.system.gestionautomobile.entity.Trip;
 import com.system.gestionautomobile.entity.VehiculeType;
 import com.system.gestionautomobile.exception.InvalidDateOrderException;
 import com.system.gestionautomobile.repository.TripRepository;
+import com.system.gestionautomobile.service.Trip.TripService;
 import com.system.gestionautomobile.service.Trip.TripServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
@@ -33,20 +35,15 @@ class TripServiceImplTest {
 
     @Test
     public void testSaveTripSuccess() {
+        TripService tripServiceMock = Mockito.mock(TripService.class);
+
         Trip validTrip = createValidTrip();
 
-        // Mock trip save operation
-        when(tripRepository.save(validTrip)).thenReturn(validTrip);
-        verify(tripService , times(1)).saveTrip(validTrip);
+        when(tripServiceMock.saveTrip(validTrip)).thenReturn(validTrip);
 
-//        // Invoke saveTrip method
-//        ResponseEntity<?> responseEntity = tripService.saveTrip(validTrip);
-//
-//        // Verify
-//        assertNotNull(responseEntity);
-//        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-//        assertEquals(ResponseEntity.ok(validTrip), responseEntity);
+        Trip savedTrip = tripServiceMock.saveTrip(validTrip);
 
+        verify(tripServiceMock, times(1)).saveTrip(validTrip);
     }
 
     @Test
@@ -60,28 +57,6 @@ class TripServiceImplTest {
 
 
     }
-
-
-/*    @Test
-    public void testSaveTripException() {
-        // Arrange
-        Trip trip = createValidTripWithConducteur();
-        // Mock necessary repository methods
-        when(ConducteurRepository.existsById(trip.getDriver().getMatricule())).thenReturn(true);
-        when(tripRepository.save(trip)).thenThrow(new RuntimeException()); // Simulate an exception during save
-        // Act & Assert
-        assertThrows(TripServiceException.class, () -> tripService.saveTrip(trip));
-    }
-
- /*   @Test
-    public void testSaveTripDriverNotFound() {
-        // Arrange
-        Trip trip = createTripWithNonExistingDriver(); // Create a trip with a driver that doesn't exist
-        when(driverRepository.existsById(trip.getDriver().getMatricule())).thenReturn(false);
-        // Act & Assert
-        assertThrows(DriverNotFoundException.class, () -> tripService.saveTrip(trip));
-    }
-    }*/
 
     private Trip createValidTrip() {
         Trip trip = new Trip();

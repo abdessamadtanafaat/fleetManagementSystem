@@ -10,7 +10,6 @@ public interface ConducteurService {
     public Conducteur saveConducteur(Conducteur conducteur);
     public void deleteConducteur(long conducteurId);
     public List<Conducteur> getAllConducteurs();
-
     public List<Conducteur> getAvailableConducteurs(Trip trip);
     public Conducteur saveSimple(Conducteur conducteur);
 

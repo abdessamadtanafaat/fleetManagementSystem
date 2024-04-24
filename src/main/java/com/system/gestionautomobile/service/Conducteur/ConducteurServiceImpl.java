@@ -56,11 +56,11 @@ public class ConducteurServiceImpl implements ConducteurService {
     @Override
     public List<Conducteur> getAvailableConducteurs(Trip trip) {
 
-        try{
-            Thread.sleep(5000);
-        } catch (InterruptedException e){
-            throw new RuntimeException(e);
-        }
+//        try{
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e){
+//            throw new RuntimeException(e);
+//        }
 
 
         //check permis type

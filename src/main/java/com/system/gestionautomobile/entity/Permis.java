@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import java.util.Set;
 @Table(name="permis")
 @Getter
 @Setter
-public class Permis {
+public class Permis  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;

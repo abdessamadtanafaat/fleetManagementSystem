@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
@@ -16,12 +17,13 @@ import java.util.Set;
 @Builder
 @Getter
 @Setter
-public class Conducteur {
+public class Conducteur implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id ;
     private String nom ;
     private String prenom ;
+    private boolean disponible ;
     private String matricule;
     private LocalDate dateNaissance;
     private String cin ;

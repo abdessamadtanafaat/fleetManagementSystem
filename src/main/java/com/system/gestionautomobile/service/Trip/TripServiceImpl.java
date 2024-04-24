@@ -118,6 +118,7 @@ public class TripServiceImpl implements TripService {
         Conducteur conducteur = conducteurService.getConducteurById(conducteurId);
         trip.setConducteur(conducteur);
         conducteur.getTrips().add(trip);
+        conducteur.setDisponible(false);
         return conducteurService.saveSimple(conducteur);
     }
 

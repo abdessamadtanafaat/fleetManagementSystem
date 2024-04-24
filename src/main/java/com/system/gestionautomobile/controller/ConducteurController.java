@@ -25,7 +25,6 @@ public class ConducteurController {
         return new ResponseEntity<>(conducteurService.saveConducteur(conducteur), HttpStatus.CREATED);
     }
 
-
     @LogActivity
     @GetMapping("/clearDriversCache")
     public String clearDriversCache() {
