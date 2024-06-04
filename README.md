@@ -1,21 +1,2 @@
-
-to work with cache redis : 
-install redis Insight.
-configure it . 
-add this lines in the applicatio properties :
-
-spring.security.filter.order=10
-logging.level.org.springframework.data.redis=DEBUG
-spring.main.allow-bean-definition-overriding=true
-
-spring.data.redis.host=localhost
-spring.data.redis.port=6379
-
-
-add this lines in the application properties : 
-
-
--------------------------------------------------------------------------------------------------
-
-
-#$ git update-index --skip-worktree src/main/resources/application.properties
+Fleet Management System. 
+This project is a backend system for managing a fleet of vehicles, developed using Spring Boot and secured with Spring Security. It includes features for vehicle tracking, maintenance scheduling, driver management, and reporting. The system is designed to ensure secure access control and data integrity, providing a robust solution for fleet management needs.
